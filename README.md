@@ -10,7 +10,7 @@ Goals for this project are:
 - [x] Mod in Seperate Folder
 - [x] README.md that explains the mod and its features
 - [x] Modified Heads Up Display (HUD) reflecting a key feature of the mod\
-  -Added a function to display, using the console, the wave number and point count of the player.
+  -Added a function to display, using the console, the wave number and point count of the player.\
   -Function is called whenever the player kills an enemy or based on a timer to counter console spam.
 - [x] In-Game Help Screen explaining mod changes\
   -Modified the existing Help Screen to reflect the Zombies mod.
