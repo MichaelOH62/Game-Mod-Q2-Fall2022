@@ -499,6 +499,25 @@ void monster_triggered_start (edict_t *self)
 	self->use = monster_triggered_spawn_use;
 }
 
+/*
+================
+increment_player_vals
+
+Called when a monster dies.
+Increment the player's kill count
+and their point count.
+================
+*/
+void increment_player_vals(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	client->killCount = client->killCount + 1;
+	client->pointCount = client->pointCount + 100;
+	client->valChanged = true;
+}
 
 /*
 ================
@@ -510,6 +529,13 @@ enemy as activator.
 */
 void monster_death_use (edict_t *self)
 {
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	client = self->enemy;
+
+	//Player killed a monster, update their stats
+	increment_player_vals(self->enemy);
+	
 	self->flags &= ~(FL_FLY|FL_SWIM);
 	self->monsterinfo.aiflags &= AI_GOOD_GUY;
 

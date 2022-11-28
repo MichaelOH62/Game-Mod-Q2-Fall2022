@@ -965,6 +965,8 @@ struct gclient_s
 	int waveCount;
 	int perkCount;
 	int pointCount;
+	qboolean valChanged;
+	float timer;
 };
 
 

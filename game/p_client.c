@@ -1356,6 +1356,8 @@ void ClientBegin (edict_t *ent)
 	client->waveCount = 0;
 	client->perkCount = 0;
 	client->pointCount = 0;
+	client->valChanged = true;
+	client->timer = level.time + 1.5;
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -1585,9 +1587,13 @@ point count of the player
 */
 void DrawZombiesUI(edict_t* ent)
 {
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
 	//Draw the wave count and point count here (uses the console)
 	gi.cprintf(ent, PRINT_HIGH, "\n\nWave: %i   Points: %i\n\n", 
-		ent->client->waveCount, ent->client->pointCount);
+		client->waveCount, client->pointCount);
 }
 
 /*
@@ -1773,9 +1779,16 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			UpdateChaseCam(other);
 	}
 
+	//gi.cprintf(ent, PRINT_HIGH, "Client timer: %f", client->timer);
+	//gi.cprintf(ent, PRINT_HIGH, "Time: %f", level.time);
+
 	//Draw the information to the player
-	//Temporary draw in ClientThink
-	DrawZombiesUI(ent);
+	if (client->valChanged || level.time > client->timer)
+	{
+		DrawZombiesUI(ent);
+		client->valChanged = false;
+		client->timer = level.time + 1.5;
+	}
 }
 
 /*
