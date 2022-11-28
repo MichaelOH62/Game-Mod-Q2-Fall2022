@@ -9,8 +9,10 @@ Goals for this project are:
 - [x] Create a desktop shortcut that automatically launches the mod
 - [x] Mod in Seperate Folder
 - [x] README.md that explains the mod and its features
-- [ ] Modified Heads Up Display (HUD) reflecting a key feature of the mod
-- [ ] In-Game Help Screen explaining mod changes
+- [x] Modified Heads Up Display (HUD) reflecting a key feature of the mod\
+  -Added a function to display, using the console, the wave number and point count of the player.
+- [x] In-Game Help Screen explaining mod changes\
+  -Modified the existing Help Screen to reflect the Zombies mod.
 - [ ] Wave Based System
 - [ ] Rethemed Weapons
 - [ ] 5 Different Perks
