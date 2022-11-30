@@ -830,8 +830,15 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	ent->client->kick_angles[0] = -1;
 
 	//Change to show mod is working, blaster fires rockets
-	fire_rocket(ent, start, forward, damage, 1000, 100, 100);
-	//fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	//fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+
+	//Generate a random float between 0 and 1
+	float x = random();
+	//gi.centerprintf(ent, "x = %f", x);
+	if(x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
+		fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+	else
+		fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
