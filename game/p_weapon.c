@@ -969,6 +969,11 @@ void Machinegun_Fire (edict_t *ent)
 	int			kick = 2;
 	vec3_t		offset;
 
+	//Variables for Zombies machinegun change
+	int hspread = 100;
+	int vspread = 300;
+	int ammo_lt20 = 0;
+
 	if (!(ent->client->buttons & BUTTON_ATTACK))
 	{
 		ent->client->machinegun_shots = 0;
@@ -983,6 +988,7 @@ void Machinegun_Fire (edict_t *ent)
 
 	if (ent->client->pers.inventory[ent->client->ammo_index] < 1)
 	{
+		ent->client->fireCounter = 0;
 		ent->client->ps.gunframe = 6;
 		if (level.time >= ent->pain_debounce_time)
 		{
@@ -1015,12 +1021,29 @@ void Machinegun_Fire (edict_t *ent)
 			ent->client->machinegun_shots = 9;
 	}
 
+	//Check if the weapon has less than 20 rounds
+	if (ent->client->pers.inventory[ent->client->ammo_index] < 20)
+	{
+		ammo_lt20 = 1;
+	}
+
 	// get start / end positions
 	VectorAdd (ent->client->v_angle, ent->client->kick_angles, angles);
 	AngleVectors (angles, forward, right, NULL);
 	VectorSet(offset, 0, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+
+	//Check if the weapon has less than 20 shots, if so reduce spread and increase damage
+	if (ammo_lt20 == 1)
+		fire_bullet (ent, start, forward, damage+2, kick, hspread, vspread, MOD_MACHINEGUN);
+	else
+		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+
+	/*
+	ent->client->fireCounter++;
+	gi.centerprintf(ent, "Fire counter = %d", ent->client->fireCounter);
+	gi.centerprintf(ent, "Ammo = %d", ent->client->pers.inventory[ent->client->ammo_index]);
+	*/
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);

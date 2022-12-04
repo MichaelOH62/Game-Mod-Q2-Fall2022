@@ -967,6 +967,7 @@ struct gclient_s
 	int pointCount;
 	qboolean valChanged;
 	float timer;
+	int fireCounter;
 };
 
 
