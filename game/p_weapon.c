@@ -711,7 +711,7 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 	vec3_t	offset;
 	vec3_t	forward, right;
 	vec3_t	start;
-	int		damage = 120;
+	int		damage = 100;	//reduce damage to 100 to counter 5 grenades
 	float	radius;
 
 	//Needed for modifying the vectors
@@ -731,14 +731,16 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 
 	//Shoot 5 grenades with varying YAW
 	w[YAW] = ent->client->v_angle[YAW];
-	v[YAW] = w[YAW] - 2;
+	v[YAW] = w[YAW] - 4;
 	for (int i = 0; i < 10; i+=2)
 	{
+		//generate a random timer duration, for fun
+		float x = random() + 2;
 		v[PITCH] = ent->client->v_angle[PITCH];
 		v[YAW] = v[YAW] + i;
 		v[ROLL] = ent->client->v_angle[ROLL];
 		AngleVectors(v, forward, NULL, NULL);
-		fire_grenade(ent, start, forward, damage, 600, 2.5, radius);
+		fire_grenade(ent, start, forward, damage, 600, x, radius);
 	}
 
 	gi.WriteByte (svc_muzzleflash);
@@ -756,10 +758,10 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 
 void Weapon_GrenadeLauncher (edict_t *ent)
 {
-	static int	pause_frames[]	= {34, 51, 59, 0};
-	static int	fire_frames[]	= {6, 0};
+	static int	pause_frames[] = { 34, 51, 59, 0 };
+	static int	fire_frames[] = { 6, 0 };
 
-	Weapon_Generic (ent, 5, 16, 59, 64, pause_frames, fire_frames, weapon_grenadelauncher_fire);
+	Weapon_Generic(ent, 5, 16, 59, 64, pause_frames, fire_frames, weapon_grenadelauncher_fire);
 }
 
 /*
