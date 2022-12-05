@@ -1174,13 +1174,31 @@ void Chaingun_Fire (edict_t *ent)
 	for (i=0 ; i<shots ; i++)
 	{
 		// get start / end positions
+		gi.centerprintf(ent, "Shots = %d", shots);
 		AngleVectors (ent->client->v_angle, forward, right, up);
 		r = 7 + crandom()*4;
 		u = crandom()*4;
 		VectorSet(offset, 0, r, u + ent->viewheight-8);
 		P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 
-		fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_CHAINGUN);
+		//Increase the damage based on how fast we are firing
+		if (shots == 3)
+		{
+			//held down the longest, make damage full
+			damage = 9;
+		}
+		else if (shots == 2)
+		{
+			//held down the middle, make damage middle
+			damage = 7;
+		}
+		else //shots == 1
+		{
+			//held down the shortest, make damage the smallest
+			damage = 5;
+		}
+		//gi.centerprintf(ent, "Damage = %d, HSPREAD = %d, VSPREAD = %d", damage, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots * 50));
+		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots*50), MOD_CHAINGUN);
 	}
 
 	// send muzzle flash
@@ -1305,14 +1323,44 @@ void weapon_supershotgun_fire (edict_t *ent)
 		kick *= 4;
 	}
 
-	v[PITCH] = ent->client->v_angle[PITCH];
-	v[YAW]   = ent->client->v_angle[YAW] - 5;
-	v[ROLL]  = ent->client->v_angle[ROLL];
-	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
-	v[YAW]   = ent->client->v_angle[YAW] + 5;
-	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	//Check if the player's ammo count is divisible by 10
+	if (ent->client->pers.inventory[ent->client->ammo_index] % 10 != 0)
+	{
+		//Not divisible by 10
+		//Default (small) blast, increase the damage for a small blast
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[YAW] = ent->client->v_angle[YAW];
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage+4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+	}
+	else
+	{
+		//Divisible by 10
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[ROLL] = ent->client->v_angle[ROLL];
+
+		//Set up a gigantic blast
+		v[YAW] = ent->client->v_angle[YAW] - 5;	//Fire to left
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] + 5;	//Fire to right
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] - 10;	//Fire extra far to left
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] + 10;	//Fire extra far to right
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[PITCH] = ent->client->v_angle[PITCH] + 10;	//Fire blast up
+		v[YAW] = ent->client->v_angle[YAW];	//Reset YAW to middle
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[PITCH] = ent->client->v_angle[PITCH] - 10;	//Fire blast down
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
