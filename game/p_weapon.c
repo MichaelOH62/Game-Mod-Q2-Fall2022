@@ -1485,7 +1485,8 @@ void weapon_railgun_fire (edict_t *ent)
 	}
 	else
 	{
-		damage = 150;
+		//reduce damage to 100, railgun too strong with increased fire rate
+		damage = 100;
 		kick = 250;
 	}
 
@@ -1510,7 +1511,8 @@ void weapon_railgun_fire (edict_t *ent)
 	gi.WriteByte (MZ_RAILGUN | is_silenced);
 	gi.multicast (ent->s.origin, MULTICAST_PVS);
 
-	ent->client->ps.gunframe++;
+	//Increase the fire rate
+	ent->client->ps.gunframe+=3;
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 
 	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
@@ -1522,8 +1524,9 @@ void Weapon_Railgun (edict_t *ent)
 {
 	static int	pause_frames[]	= {56, 0};
 	static int	fire_frames[]	= {4, 0};
-
-	Weapon_Generic (ent, 3, 18, 56, 61, pause_frames, fire_frames, weapon_railgun_fire);
+	
+	//change 3rd arg to 10, increase fire rate
+	Weapon_Generic (ent, 3, 10, 56, 61, pause_frames, fire_frames, weapon_railgun_fire);
 }
 
 
