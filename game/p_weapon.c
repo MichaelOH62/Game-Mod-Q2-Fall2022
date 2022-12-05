@@ -706,7 +706,7 @@ GRENADE LAUNCHER
 ======================================================================
 */
 
-void weapon_grenadelauncher_fire (edict_t *ent)
+void weapon_grenadelauncher_fire(edict_t* ent)
 {
 	vec3_t	offset;
 	vec3_t	forward, right;
@@ -714,18 +714,33 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	int		damage = 120;
 	float	radius;
 
-	radius = damage+40;
+	//Needed for modifying the vectors
+	vec3_t		v;
+	vec3_t		w;
+	float		rand;
+
+	radius = damage + 40;
 	if (is_quad)
 		damage *= 4;
 
-	VectorSet(offset, 8, 8, ent->viewheight-8);
-	AngleVectors (ent->client->v_angle, forward, right, NULL);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
+	VectorSet(offset, 8, 8, ent->viewheight - 8);
+	AngleVectors(ent->client->v_angle, forward, right, NULL);
+	P_ProjectSource(ent->client, ent->s.origin, offset, forward, right, start);
 
-	VectorScale (forward, -2, ent->client->kick_origin);
+	VectorScale(forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
 
-	fire_grenade (ent, start, forward, damage, 600, 2.5, radius);
+	//Shoot 5 grenades with varying YAW
+	w[YAW] = ent->client->v_angle[YAW];
+	v[YAW] = w[YAW] - 2;
+	for (int i = 0; i < 10; i+=2)
+	{
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[YAW] = v[YAW] + i;
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		fire_grenade(ent, start, forward, damage, 600, 2.5, radius);
+	}
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -737,7 +752,7 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 
 	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
-		ent->client->pers.inventory[ent->client->ammo_index]--;
+		ent->client->pers.inventory[ent->client->ammo_index]-=5;	//Reduce ammo by 5
 }
 
 void Weapon_GrenadeLauncher (edict_t *ent)
