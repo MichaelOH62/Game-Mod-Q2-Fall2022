@@ -717,7 +717,6 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 	//Needed for modifying the vectors
 	vec3_t		v;
 	vec3_t		w;
-	float		rand;
 
 	radius = damage + 40;
 	if (is_quad)
@@ -779,6 +778,10 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 	float	damage_radius;
 	int		radius_damage;
 
+	//For modifying the rocket's PITCH
+	vec3_t w;
+	vec3_t v;
+
 	damage = 100 + (int)(random() * 20.0);
 	radius_damage = 120;
 	damage_radius = 120;
@@ -795,7 +798,19 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
+
+	//Shoot 3 rockets with increasing PITCH
+	w[PITCH] = ent->client->v_angle[PITCH];
+	v[PITCH] = w[PITCH];
+	for (int i = 0; i < 6; i += 2)
+	{
+		v[PITCH] = v[PITCH] + i;
+		v[YAW] = ent->client->v_angle[YAW];
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		//Increase fly speed and reduced damage radius
+		fire_rocket(ent, start, forward, damage, 800, damage_radius-20, radius_damage);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);

@@ -432,6 +432,7 @@ static void Grenade_Explode (edict_t *ent)
 
 	VectorMA (ent->s.origin, -0.02, ent->velocity, origin);
 	gi.WriteByte (svc_temp_entity);
+	gi.WriteByte (svc_temp_entity);
 	if (ent->waterlevel)
 	{
 		if (ent->groundentity)
