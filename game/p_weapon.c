@@ -849,6 +849,10 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	vec3_t	start;
 	vec3_t	offset;
 
+	//Needed for modifying the vectors
+	vec3_t		v;
+	vec3_t		w;
+
 	if (is_quad)
 		damage *= 4;
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
@@ -862,13 +866,56 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	//Change to show mod is working, blaster fires rockets
 	//fire_rocket(ent, start, forward, damage, 1000, 100, 100);
 
-	//Generate a random float between 0 and 1
-	float x = random();
-	//gi.centerprintf(ent, "x = %f", x);
-	if(x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
-		fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+	if (hyper == false)
+	{
+		//Handle blaster firing here
+
+		//Generate a random float between 0 and 1
+		float x = random();
+		//gi.centerprintf(ent, "x = %f", x);
+		if (x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
+			fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+		else
+			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+	}
 	else
-		fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	{
+		//Handle hyperblaster firing here
+
+		//Generate a random float between 0 and 1 and a random between 0 and 9
+		float x = random();
+		int y = rand() % 10;
+
+		//gi.centerprintf(ent, "y = %d", y);
+
+		//Add an element of randomness to where the blaster bolts fire
+		if (x < 0.25)	// - -
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] - y;
+			v[YAW] = ent->client->v_angle[YAW] - y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else if (x >= 0.25 && x < 0.50)	// + -
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] + y;
+			v[YAW] = ent->client->v_angle[YAW] - y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else if (x >= 0.50 && x < 0.75)	// - +
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] - y;
+			v[YAW] = ent->client->v_angle[YAW] + y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else //x is greater than 0.75, + +
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] + y;
+			v[YAW] = ent->client->v_angle[YAW] + y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		AngleVectors(v, forward, NULL, NULL);
+		fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
