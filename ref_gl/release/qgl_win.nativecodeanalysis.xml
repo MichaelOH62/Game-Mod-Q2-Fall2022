@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>qgl_win.c</FILENAME>
+      <LINE>3039</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'putenv'.</DESCRIPTION>
+    <FUNCTION>QGL_Init</FUNCTION>
+    <DECORATED>QGL_Init</DECORATED>
+    <FUNCLINE>3030</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>qgl_win.c</FILENAME>
+      <LINE>3041</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'putenv'.</DESCRIPTION>
+    <FUNCTION>QGL_Init</FUNCTION>
+    <DECORATED>QGL_Init</DECORATED>
+    <FUNCLINE>3030</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>qgl_win.c</FILENAME>
+      <LINE>3438</LINE>
+      <COLUMN>3</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'asctime'.</DESCRIPTION>
+    <FUNCTION>GLimp_EnableLogging</FUNCTION>
+    <DECORATED>GLimp_EnableLogging</DECORATED>
+    <FUNCLINE>3425</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

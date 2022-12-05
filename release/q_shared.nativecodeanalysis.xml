@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\game\</FILEPATH>
+      <FILENAME>q_shared.c</FILENAME>
+      <LINE>760</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>28251</DEFECTCODE>
+    <DESCRIPTION>Inconsistent annotation for 'sqrt': this instance has no annotations. See &lt;no file&gt;(0). </DESCRIPTION>
+    <FUNCTION>sqrt</FUNCTION>
+    <DECORATED>sqrt</DECORATED>
+    <FUNCLINE>760</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\game\</FILEPATH>
+      <FILENAME>q_shared.c</FILENAME>
+      <LINE>1223</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '65556' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>Com_sprintf</FUNCTION>
+    <DECORATED>Com_sprintf</DECORATED>
+    <FUNCLINE>1223</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

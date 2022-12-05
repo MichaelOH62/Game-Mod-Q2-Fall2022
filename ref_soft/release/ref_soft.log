@@ -52,4 +52,93 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v17
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(247,5): warning MSB8065: Custom build for item "r_spr8.asm" succeeded, but specified output "c:\git\game-mod-q2-fall2022\release\.obj" has not been created. This may cause incremental build to work incorrectly.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(247,5): warning MSB8065: Custom build for item "r_surf8.asm" succeeded, but specified output "c:\git\game-mod-q2-fall2022\release\.obj" has not been created. This may cause incremental build to work incorrectly.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(247,5): warning MSB8065: Custom build for item "r_varsa.asm" succeeded, but specified output "c:\git\game-mod-q2-fall2022\release\.obj" has not been created. This may cause incremental build to work incorrectly.
+  q_shared.c
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(266,40): warning C4100: 'f': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(312,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(315,19): warning C4459: declaration of 'corners' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(306,9): message : see declaration of 'corners'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,86): warning C4100: 'p': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,62): warning C4100: 'emaxs': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,48): warning C4100: 'emins': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(658,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(764,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(841,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(876,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(897,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(923,2): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1056,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1163,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1230,8): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1234,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1334,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  q_shwin.c
+  r_aclip.c
+  r_alias.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(108,16): warning C4189: 'minz': local variable is initialized but not referenced
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1005,36): warning C4100: 'pmdl': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1052,50): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1053,46): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1054,46): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1055,54): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(1056,54): warning C4210: nonstandard extension used: function given file scope
+  r_bsp.c
+  r_draw.c
+  r_edge.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_edge.c(801,35): warning C4459: declaration of 'pface' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_edge.c(741,14): message : see declaration of 'pface'
+  r_image.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(422,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(463,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  r_light.c
+  r_main.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_main.c(1097,42): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_main.c(1095,26): warning C4100: 'camera_separation': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_main.c(1303,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_main.c(1404,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_main.c(1416,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  r_misc.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(53,33): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(55,40): warning C4210: nonstandard extension used: function given file scope
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(226,62): warning C4100: 'vout': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(226,50): warning C4100: 'vin': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(601,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(635,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_misc.c(642,7): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  r_model.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_model.c(131,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  r_part.c
+  r_poly.c
+  r_polyse.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_polyse.c(415,34): warning C4459: declaration of 'skinwidth' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_polyse.c(114,6): message : see declaration of 'skinwidth'
+  r_rast.c
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_rast.c(600,56): warning C4389: '==': signed/unsigned mismatch
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_rast.c(644,56): warning C4389: '==': signed/unsigned mismatch
+  r_scan.c
+  r_sprite.c
+  r_surf.c
+  rw_ddraw.c
+  Running Code Analysis for C/C++...
+  Generating Code...
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(328): warning C4701: potentially uninitialized local variable 'blue' used
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(327): warning C4701: potentially uninitialized local variable 'green' used
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(326): warning C4701: potentially uninitialized local variable 'red' used
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_image.c(329): warning C4701: potentially uninitialized local variable 'alphabyte' used
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_alias.c(434): warning C4740: flow in or out of inline asm code suppresses global optimization
+  Compiling...
+  rw_dib.c
+C:\git\Game-Mod-Q2-Fall2022\win32\rw_dib.c(257,8): warning C4456: declaration of 'i' hides previous local declaration
+C:\git\Game-Mod-Q2-Fall2022\win32\rw_dib.c(220,9): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\win32\rw_dib.c(366,67): warning C4057: 'function': 'const COLORREF *' differs in indirection to slightly different base types from 'int [19]'
+  rw_imp.c
+C:\git\Game-Mod-Q2-Fall2022\win32\rw_imp.c(49,48): warning C4459: declaration of 'vid_fullscreen' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\ref_soft\r_local.h(575,16): message : see declaration of 'vid_fullscreen'
+  Running Code Analysis for C/C++...
+  Generating Code...
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1094,5): error MSB6006: "link.exe" exited with code 1181.
 LINK : fatal error LNK1181: cannot open input file '.\..\release\\.obj'

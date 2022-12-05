@@ -1,0 +1,140 @@
+﻿  gl_draw.c
+  gl_image.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(118,12): warning C4389: '!=': signed/unsigned mismatch
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1254,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1269,9): warning C4456: declaration of 'i' hides previous local declaration
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1236,8): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1446,39): warning C4057: 'function': 'const GLuint *' differs in indirection to slightly different base types from 'int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1567,39): warning C4057: 'function': 'const GLuint *' differs in indirection to slightly different base types from 'int *'
+  gl_light.c
+  gl_mesh.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(177,13): warning C4456: declaration of 'l' hides previous local declaration
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(92,9): message : see declaration of 'l'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(306,49): warning C4100: 'posenum': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(718,96): warning C4210: nonstandard extension used: function given file scope
+  gl_model.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_model.c(222,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  gl_rmain.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1067,40): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1067,53): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1078,42): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1078,55): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1089,41): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1089,54): warning C4057: 'function': 'int *' differs in indirection to slightly different base types from 'unsigned int *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1153,52): warning C4057: '=': 'const char *' differs in indirection to slightly different base types from 'const GLubyte *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1155,56): warning C4057: '=': 'const char *' differs in indirection to slightly different base types from 'const GLubyte *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1157,54): warning C4057: '=': 'const char *' differs in indirection to slightly different base types from 'const GLubyte *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1159,60): warning C4057: '=': 'const char *' differs in indirection to slightly different base types from 'const GLubyte *'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1162,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1165,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1251,72): warning C4152: nonstandard extension, function/data pointer conversion in expression
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1252,76): warning C4152: nonstandard extension, function/data pointer conversion in expression
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1310,77): warning C4152: nonstandard extension, function/data pointer conversion in expression
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1311,81): warning C4152: nonstandard extension, function/data pointer conversion in expression
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1163,2): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strlwr. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1166,2): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strlwr. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1419,4): warning C4996: 'putenv': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _putenv. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1421,4): warning C4996: 'putenv': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _putenv. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1651,18): warning C4133: '=': incompatible types - from 'int (__cdecl *)(void *,void *)' to 'qboolean (__cdecl *)(void *,void *)'
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1674,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1686,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  gl_rmisc.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(115,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(122,7): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(154,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  gl_rsurf.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rsurf.c(1562,42): warning C4100: 'm': unreferenced formal parameter
+  gl_warp.c
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_warp.c(631,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  glw_imp.c
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(51,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(51,46): warning C4057: 'function': 'const char *' differs in indirection to slightly different base types from 'const GLubyte *'
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(52,2): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strlwr. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(357,7): warning C4996: 'GetVersionExA': was declared deprecated
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(594,7): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+  q_shared.c
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(266,40): warning C4100: 'f': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(312,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(315,19): warning C4459: declaration of 'corners' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(306,9): message : see declaration of 'corners'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,86): warning C4100: 'p': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,62): warning C4100: 'emaxs': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(418,48): warning C4100: 'emins': unreferenced formal parameter
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(658,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(764,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(841,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(876,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(897,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(923,2): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1056,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1163,8): warning C4459: declaration of 'i' hides global declaration
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(305,7): message : see declaration of 'i'
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1230,8): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1234,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1334,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  q_shwin.c
+  qgl_win.c
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3152,84): warning C4057: '=': 'GLuint (__stdcall *)(GLsizei)' differs in indirection to slightly different base types from 'FARPROC'
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3157,84): warning C4057: '=': 'GLenum (__stdcall *)(void)' differs in indirection to slightly different base types from 'FARPROC'
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3039,3): warning C4996: 'putenv': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _putenv. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3041,3): warning C4996: 'putenv': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _putenv. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3436,14): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3438,4): warning C4996: 'asctime': This function or variable may be unsafe. Consider using asctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3441,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3443,39): warning C4996: 'asctime': This function or variable may be unsafe. Consider using asctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Running Code Analysis for C/C++...
+  Generating Code...
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1341): warning C4715: 'R_Init': not all control paths return a value
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(668): warning C4701: potentially uninitialized local variable 'blue' used
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(667): warning C4701: potentially uninitialized local variable 'green' used
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(666): warning C4701: potentially uninitialized local variable 'red' used
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(669): warning C4701: potentially uninitialized local variable 'alphabyte' used
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1223): warning C4715: 'GL_Upload8': not all control paths return a value
+     Creating library .\..\release\ref_gl.lib and object .\..\release\ref_gl.exp
+  ref_gl.vcxproj -> C:\git\Game-Mod-Q2-Fall2022\release\ref_gl.dll
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(232): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(234): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(234): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(236): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(265): warning C6385: Reading invalid data from 'd_8to24table'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_draw.c(319): warning C6262: Function uses '327752' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(502): warning C6386: Buffer overrun while writing to 'pix'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(633): warning C6011: Dereferencing NULL pointer 'pixbuf'. 
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(761): warning C6262: Function uses '16432' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(956): warning C6262: Function uses '327728' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1165): warning C6262: Function uses '524320' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1286): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1288): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_image.c(1473): warning C6011: Dereferencing NULL pointer 'pal'. 
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_light.c(278): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_light.c(279): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_light.c(280): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(90): warning C6262: Function uses '32916' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(675): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_mesh.c(714): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_model.c(57): warning C6011: Dereferencing NULL pointer 'model'. 
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_model.c(60): warning C28182: Dereferencing NULL pointer. 'node' contains the same NULL value as 'model->nodes' did. 
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1419): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmain.c(1421): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(135): warning C6386: Buffer overrun while writing to 'buffer'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(135): warning C6387: 'buffer' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(136): warning C6011: Dereferencing NULL pointer 'buffer'. See line 135 for an earlier location where this can occur
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(149): warning C6385: Reading invalid data from 'buffer'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rmisc.c(155): warning C6387: 'buffer' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rsurf.c(700): warning C6262: Function uses '65588' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_rsurf.c(1562): warning C6262: Function uses '65544' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\gl_warp.c(89): warning C6001: Using uninitialized memory 'dist'.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(136): warning C6387: 'glw_state.hWnd' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(137): warning C6387: 'glw_state.hWnd' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(146): warning C6387: 'glw_state.hWnd' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\win32\glw_imp.c(357): warning C28159: Consider using 'IsWindows*' instead of 'GetVersionExA'. Reason: Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(760): warning C28251: Inconsistent annotation for 'sqrt': this instance has no annotations. See <no file>(0). 
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1223): warning C6262: Function uses '65556' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\win32\q_shwin.c(137): warning C6031: Return value ignored: '_mkdir'.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3039): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3041): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\win32\qgl_win.c(3438): warning C6031: Return value ignored: 'asctime'.

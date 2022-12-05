@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_tent.c</FILENAME>
+      <LINE>1255</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>CL_AddBeams</FUNCTION>
+    <DECORATED>CL_AddBeams</DECORATED>
+    <FUNCLINE>1206</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_tent.c</FILENAME>
+      <LINE>1255</LINE>
+      <COLUMN>26</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>CL_AddBeams</FUNCTION>
+    <DECORATED>CL_AddBeams</DECORATED>
+    <FUNCLINE>1206</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_tent.c</FILENAME>
+      <LINE>1470</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>CL_AddPlayerBeams</FUNCTION>
+    <DECORATED>CL_AddPlayerBeams</DECORATED>
+    <FUNCLINE>1346</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_tent.c</FILENAME>
+      <LINE>1470</LINE>
+      <COLUMN>26</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>CL_AddPlayerBeams</FUNCTION>
+    <DECORATED>CL_AddPlayerBeams</DECORATED>
+    <FUNCLINE>1346</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_tent.c</FILENAME>
+      <LINE>1610</LINE>
+      <COLUMN>18</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>CL_AddExplosions</FUNCTION>
+    <DECORATED>CL_AddExplosions</DECORATED>
+    <FUNCLINE>1596</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

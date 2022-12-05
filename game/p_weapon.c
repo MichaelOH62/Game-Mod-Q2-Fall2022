@@ -706,26 +706,42 @@ GRENADE LAUNCHER
 ======================================================================
 */
 
-void weapon_grenadelauncher_fire (edict_t *ent)
+void weapon_grenadelauncher_fire(edict_t* ent)
 {
 	vec3_t	offset;
 	vec3_t	forward, right;
 	vec3_t	start;
-	int		damage = 120;
+	int		damage = 100;	//reduce damage to 100 to counter 5 grenades
 	float	radius;
 
-	radius = damage+40;
+	//Needed for modifying the vectors
+	vec3_t		v;
+	vec3_t		w;
+
+	radius = damage + 40;
 	if (is_quad)
 		damage *= 4;
 
-	VectorSet(offset, 8, 8, ent->viewheight-8);
-	AngleVectors (ent->client->v_angle, forward, right, NULL);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
+	VectorSet(offset, 8, 8, ent->viewheight - 8);
+	AngleVectors(ent->client->v_angle, forward, right, NULL);
+	P_ProjectSource(ent->client, ent->s.origin, offset, forward, right, start);
 
-	VectorScale (forward, -2, ent->client->kick_origin);
+	VectorScale(forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -1;
 
-	fire_grenade (ent, start, forward, damage, 600, 2.5, radius);
+	//Shoot 5 grenades with varying YAW
+	w[YAW] = ent->client->v_angle[YAW];
+	v[YAW] = w[YAW] - 4;
+	for (int i = 0; i < 10; i+=2)
+	{
+		//generate a random timer duration, for fun
+		float x = random() + 2;
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[YAW] = v[YAW] + i;
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		fire_grenade(ent, start, forward, damage, 600, x, radius);
+	}
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -737,15 +753,15 @@ void weapon_grenadelauncher_fire (edict_t *ent)
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 
 	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
-		ent->client->pers.inventory[ent->client->ammo_index]--;
+		ent->client->pers.inventory[ent->client->ammo_index]-=5;	//Reduce ammo by 5
 }
 
 void Weapon_GrenadeLauncher (edict_t *ent)
 {
-	static int	pause_frames[]	= {34, 51, 59, 0};
-	static int	fire_frames[]	= {6, 0};
+	static int	pause_frames[] = { 34, 51, 59, 0 };
+	static int	fire_frames[] = { 6, 0 };
 
-	Weapon_Generic (ent, 5, 16, 59, 64, pause_frames, fire_frames, weapon_grenadelauncher_fire);
+	Weapon_Generic(ent, 5, 16, 59, 64, pause_frames, fire_frames, weapon_grenadelauncher_fire);
 }
 
 /*
@@ -764,6 +780,10 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 	float	damage_radius;
 	int		radius_damage;
 
+	//For modifying the rocket's PITCH
+	vec3_t w;
+	vec3_t v;
+
 	damage = 100 + (int)(random() * 20.0);
 	radius_damage = 120;
 	damage_radius = 120;
@@ -780,7 +800,19 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rocket (ent, start, forward, damage, 650, damage_radius, radius_damage);
+
+	//Shoot 3 rockets with increasing PITCH
+	w[PITCH] = ent->client->v_angle[PITCH];
+	v[PITCH] = w[PITCH];
+	for (int i = 0; i < 6; i += 2)
+	{
+		v[PITCH] = v[PITCH] + i;
+		v[YAW] = ent->client->v_angle[YAW];
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		//Increase fly speed and reduced damage radius
+		fire_rocket(ent, start, forward, damage, 800, damage_radius-20, radius_damage);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -819,6 +851,10 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	vec3_t	start;
 	vec3_t	offset;
 
+	//Needed for modifying the vectors
+	vec3_t		v;
+	vec3_t		w;
+
 	if (is_quad)
 		damage *= 4;
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
@@ -830,8 +866,58 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	ent->client->kick_angles[0] = -1;
 
 	//Change to show mod is working, blaster fires rockets
-	fire_rocket(ent, start, forward, damage, 1000, 100, 100);
-	//fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	//fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+
+	if (hyper == false)
+	{
+		//Handle blaster firing here
+
+		//Generate a random float between 0 and 1
+		float x = random();
+		//gi.centerprintf(ent, "x = %f", x);
+		if (x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
+			fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+		else
+			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+	}
+	else
+	{
+		//Handle hyperblaster firing here
+
+		//Generate a random float between 0 and 1 and a random between 0 and 9
+		float x = random();
+		int y = rand() % 10;
+
+		//gi.centerprintf(ent, "y = %d", y);
+
+		//Add an element of randomness to where the blaster bolts fire
+		if (x < 0.25)	// - -
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] - y;
+			v[YAW] = ent->client->v_angle[YAW] - y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else if (x >= 0.25 && x < 0.50)	// + -
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] + y;
+			v[YAW] = ent->client->v_angle[YAW] - y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else if (x >= 0.50 && x < 0.75)	// - +
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] - y;
+			v[YAW] = ent->client->v_angle[YAW] + y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		else //x is greater than 0.75, + +
+		{
+			v[PITCH] = ent->client->v_angle[PITCH] + y;
+			v[YAW] = ent->client->v_angle[YAW] + y;
+			v[ROLL] = ent->client->v_angle[ROLL];
+		}
+		AngleVectors(v, forward, NULL, NULL);
+		fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -962,6 +1048,11 @@ void Machinegun_Fire (edict_t *ent)
 	int			kick = 2;
 	vec3_t		offset;
 
+	//Variables for Zombies machinegun change
+	int hspread = 100;
+	int vspread = 300;
+	int ammo_lt20 = 0;
+
 	if (!(ent->client->buttons & BUTTON_ATTACK))
 	{
 		ent->client->machinegun_shots = 0;
@@ -976,6 +1067,7 @@ void Machinegun_Fire (edict_t *ent)
 
 	if (ent->client->pers.inventory[ent->client->ammo_index] < 1)
 	{
+		ent->client->fireCounter = 0;
 		ent->client->ps.gunframe = 6;
 		if (level.time >= ent->pain_debounce_time)
 		{
@@ -1008,12 +1100,29 @@ void Machinegun_Fire (edict_t *ent)
 			ent->client->machinegun_shots = 9;
 	}
 
+	//Check if the weapon has less than 20 rounds
+	if (ent->client->pers.inventory[ent->client->ammo_index] < 20)
+	{
+		ammo_lt20 = 1;
+	}
+
 	// get start / end positions
 	VectorAdd (ent->client->v_angle, ent->client->kick_angles, angles);
 	AngleVectors (angles, forward, right, NULL);
 	VectorSet(offset, 0, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+
+	//Check if the weapon has less than 20 shots, if so reduce spread and increase damage
+	if (ammo_lt20 == 1)
+		fire_bullet (ent, start, forward, damage+2, kick, hspread, vspread, MOD_MACHINEGUN);
+	else
+		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+
+	/*
+	ent->client->fireCounter++;
+	gi.centerprintf(ent, "Fire counter = %d", ent->client->fireCounter);
+	gi.centerprintf(ent, "Ammo = %d", ent->client->pers.inventory[ent->client->ammo_index]);
+	*/
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -1144,13 +1253,31 @@ void Chaingun_Fire (edict_t *ent)
 	for (i=0 ; i<shots ; i++)
 	{
 		// get start / end positions
+		gi.centerprintf(ent, "Shots = %d", shots);
 		AngleVectors (ent->client->v_angle, forward, right, up);
 		r = 7 + crandom()*4;
 		u = crandom()*4;
 		VectorSet(offset, 0, r, u + ent->viewheight-8);
 		P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 
-		fire_bullet (ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_CHAINGUN);
+		//Increase the damage based on how fast we are firing
+		if (shots == 3)
+		{
+			//held down the longest, make damage full
+			damage = 9;
+		}
+		else if (shots == 2)
+		{
+			//held down the middle, make damage middle
+			damage = 7;
+		}
+		else //shots == 1
+		{
+			//held down the shortest, make damage the smallest
+			damage = 5;
+		}
+		//gi.centerprintf(ent, "Damage = %d, HSPREAD = %d, VSPREAD = %d", damage, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots * 50));
+		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots*50), MOD_CHAINGUN);
 	}
 
 	// send muzzle flash
@@ -1183,7 +1310,7 @@ SHOTGUN / SUPERSHOTGUN
 ======================================================================
 */
 
-void weapon_shotgun_fire (edict_t *ent)
+void weapon_shotgun_fire(edict_t* ent)
 {
 	vec3_t		start;
 	vec3_t		forward, right;
@@ -1197,13 +1324,13 @@ void weapon_shotgun_fire (edict_t *ent)
 		return;
 	}
 
-	AngleVectors (ent->client->v_angle, forward, right, NULL);
+	AngleVectors(ent->client->v_angle, forward, right, NULL);
 
-	VectorScale (forward, -2, ent->client->kick_origin);
+	VectorScale(forward, -2, ent->client->kick_origin);
 	ent->client->kick_angles[0] = -2;
 
-	VectorSet(offset, 0, 8,  ent->viewheight-8);
-	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
+	VectorSet(offset, 0, 8, ent->viewheight - 8);
+	P_ProjectSource(ent->client, ent->s.origin, offset, forward, right, start);
 
 	if (is_quad)
 	{
@@ -1212,10 +1339,24 @@ void weapon_shotgun_fire (edict_t *ent)
 	}
 
 	if (deathmatch->value)
-		fire_shotgun (ent, start, forward, damage, kick, 500, 500, DEFAULT_DEATHMATCH_SHOTGUN_COUNT, MOD_SHOTGUN);
+	{
+		fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_DEATHMATCH_SHOTGUN_COUNT, MOD_SHOTGUN);
+	}
 	else
-		fire_shotgun (ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
-
+	{
+		//Check if the weapon has an even amount of rounds, if so increase spread and pellet count
+		if (ent->client->pers.inventory[ent->client->ammo_index] % 2 == 0)
+		{
+			//Even, large spread and pellet count
+			fire_shotgun(ent, start, forward, damage, kick, 750, 750, DEFAULT_SHOTGUN_COUNT + 8, MOD_SHOTGUN);
+		}
+		else
+		{
+			//Odd, default spread and pellet count
+			fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+		}
+	}
+		
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -1261,14 +1402,44 @@ void weapon_supershotgun_fire (edict_t *ent)
 		kick *= 4;
 	}
 
-	v[PITCH] = ent->client->v_angle[PITCH];
-	v[YAW]   = ent->client->v_angle[YAW] - 5;
-	v[ROLL]  = ent->client->v_angle[ROLL];
-	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
-	v[YAW]   = ent->client->v_angle[YAW] + 5;
-	AngleVectors (v, forward, NULL, NULL);
-	fire_shotgun (ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT/2, MOD_SSHOTGUN);
+	//Check if the player's ammo count is divisible by 10
+	if (ent->client->pers.inventory[ent->client->ammo_index] % 10 != 0)
+	{
+		//Not divisible by 10
+		//Default (small) blast, increase the damage for a small blast
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[YAW] = ent->client->v_angle[YAW];
+		v[ROLL] = ent->client->v_angle[ROLL];
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage+4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+	}
+	else
+	{
+		//Divisible by 10
+		v[PITCH] = ent->client->v_angle[PITCH];
+		v[ROLL] = ent->client->v_angle[ROLL];
+
+		//Set up a gigantic blast
+		v[YAW] = ent->client->v_angle[YAW] - 5;	//Fire to left
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] + 5;	//Fire to right
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] - 10;	//Fire extra far to left
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[YAW] = ent->client->v_angle[YAW] + 10;	//Fire extra far to right
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[PITCH] = ent->client->v_angle[PITCH] + 10;	//Fire blast up
+		v[YAW] = ent->client->v_angle[YAW];	//Reset YAW to middle
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		v[PITCH] = ent->client->v_angle[PITCH] - 10;	//Fire blast down
+		AngleVectors(v, forward, NULL, NULL);
+		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -1316,7 +1487,8 @@ void weapon_railgun_fire (edict_t *ent)
 	}
 	else
 	{
-		damage = 150;
+		//reduce damage to 100, railgun too strong with increased fire rate
+		damage = 100;
 		kick = 250;
 	}
 
@@ -1341,7 +1513,8 @@ void weapon_railgun_fire (edict_t *ent)
 	gi.WriteByte (MZ_RAILGUN | is_silenced);
 	gi.multicast (ent->s.origin, MULTICAST_PVS);
 
-	ent->client->ps.gunframe++;
+	//Increase the fire rate
+	ent->client->ps.gunframe+=3;
 	PlayerNoise(ent, start, PNOISE_WEAPON);
 
 	if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
@@ -1353,8 +1526,9 @@ void Weapon_Railgun (edict_t *ent)
 {
 	static int	pause_frames[]	= {56, 0};
 	static int	fire_frames[]	= {4, 0};
-
-	Weapon_Generic (ent, 3, 18, 56, 61, pause_frames, fire_frames, weapon_railgun_fire);
+	
+	//change 3rd arg to 10, increase fire rate
+	Weapon_Generic (ent, 3, 10, 56, 61, pause_frames, fire_frames, weapon_railgun_fire);
 }
 
 
@@ -1373,10 +1547,13 @@ void weapon_bfg_fire (edict_t *ent)
 	int		damage;
 	float	damage_radius = 1000;
 
+	//fly speed before modifying by x
+	int fly_speed = 1000;
+
 	if (deathmatch->value)
 		damage = 200;
 	else
-		damage = 500;
+		damage = 250;	//Reduce damage, too OP with modifications
 
 	if (ent->client->ps.gunframe == 9)
 	{
@@ -1407,14 +1584,38 @@ void weapon_bfg_fire (edict_t *ent)
 
 	VectorScale (forward, -2, ent->client->kick_origin);
 
+	//generate a random float between 0 and 1
+	float x = random();
+
+	//ensure the fly speed is not too slow
+	if (x <= 0.25)
+	{
+		fly_speed = 250;
+	}
+	else
+	{
+		fly_speed = fly_speed * x;
+	}
+
 	// make a big pitch kick with an inverse fall
-	ent->client->v_dmg_pitch = -40;
+	ent->client->v_dmg_pitch = -100*x;	//kick is random based on x
 	ent->client->v_dmg_roll = crandom()*8;
 	ent->client->v_dmg_time = level.time + DAMAGE_TIME;
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_bfg (ent, start, forward, damage, 400, damage_radius);
+
+	//fly speed is random based on x
+	fire_bfg (ent, start, forward, damage, fly_speed, damage_radius);
+
+	/*
+	fly speed and kick should be proportional
+	i.e., as fly speed decreases kick decreases
+
+	adds an element of randomness so that the more
+	powerful a blast is, the larger it's fly speed
+	and kick will be
+	*/
 
 	ent->client->ps.gunframe++;
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_alias.c</FILENAME>
+      <LINE>249</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '80148' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>R_AliasPreparePoints</FUNCTION>
+    <DECORATED>R_AliasPreparePoints</DECORATED>
+    <FUNCLINE>249</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_alias.c</FILENAME>
+      <LINE>920</LINE>
+      <COLUMN>36</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>R_AliasSetupLighting</FUNCTION>
+    <DECORATED>R_AliasSetupLighting</DECORATED>
+    <FUNCLINE>885</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_polyse.c</FILENAME>
+      <LINE>204</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '38448' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>R_DrawTriangle</FUNCTION>
+    <DECORATED>R_DrawTriangle</DECORATED>
+    <FUNCLINE>204</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_polyse.c</FILENAME>
+      <LINE>347</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>FloorDivMod</FUNCTION>
+    <DECORATED>FloorDivMod</DECORATED>
+    <FUNCLINE>336</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_polyse.c</FILENAME>
+      <LINE>356</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>FloorDivMod</FUNCTION>
+    <DECORATED>FloorDivMod</DECORATED>
+    <FUNCLINE>336</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

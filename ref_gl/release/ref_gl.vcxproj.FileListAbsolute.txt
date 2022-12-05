@@ -1,0 +1,2 @@
+C:\git\Game-Mod-Q2-Fall2022\release\ref_gl.dll.lastcodeanalysissucceeded
+C:\git\Game-Mod-Q2-Fall2022\ref_gl\release\NativeCodeAnalysis.read.1.tlog
