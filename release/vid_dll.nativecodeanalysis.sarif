@@ -1,0 +1,575 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C28182",
+          "message": {
+            "text": "Dereferencing NULL pointer. 'GetRefAPI' contains the same NULL value as 'GetRefAPI=(void *)GetProcAddress(reflib_library, \"GetRefAPI\")' did. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                },
+                "region": {
+                  "startLine": 597,
+                  "startColumn": 2,
+                  "endLine": 597,
+                  "endColumn": 18
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "VID_LoadRefresh",
+                  "decoratedName": "VID_LoadRefresh",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 559,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 560,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 562,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 568,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 570,
+                            "startColumn": 48
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 577,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 578,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 579,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 580,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 581,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 582,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 583,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 584,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 585,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 586,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 587,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 588,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 589,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 590,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 591,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 592,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 594,
+                            "startColumn": 78
+                          }
+                        },
+                        "message": {
+                          "text": "'GetRefAPI' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 595,
+                            "startColumn": 3
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 597,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "'GetRefAPI' receives the Return value from 'GetProcAddress' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\libloaderapi.h:342)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                          },
+                          "region": {
+                            "startLine": 597,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "'GetRefAPI' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'putenv'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+                },
+                "region": {
+                  "startLine": 740,
+                  "startColumn": 2,
+                  "endLine": 740,
+                  "endColumn": 9
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "VID_Init",
+                  "decoratedName": "VID_Init",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/win32/vid_dll.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "fb9a9dd6498bd1f6e37bb5466b29069999954cb6c1acac41865b66a44229d396"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/client.h"
+          },
+          "hashes": {
+            "sha-256": "455eb8b30088d2391e5b28cb9ecf3fe09528ec5c6d77dfac82642f185f632a9a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/ref.h"
+          },
+          "hashes": {
+            "sha-256": "89dfd6912550cb4cffd6d159d1e3f403a5f14a8bb61eddbbccf580fb55556fe5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qcommon.h"
+          },
+          "hashes": {
+            "sha-256": "97e97589a4c42a328eb41b5e6f9b7f3f0674ece33b26a2e09fb69ba181107230"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qfiles.h"
+          },
+          "hashes": {
+            "sha-256": "c57f82fc187b6242158e0bca02b0e13b2668dfeec94e313f444f584a56c6d1c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/vid.h"
+          },
+          "hashes": {
+            "sha-256": "d3870f414b1082bd3916b1c49277512a021298b3a49766c87a41fbc76fb241a9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/screen.h"
+          },
+          "hashes": {
+            "sha-256": "6931b7e9305e5015714d1f649c200cfcf450c674c6c42d575780502db3ddeeff"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/sound.h"
+          },
+          "hashes": {
+            "sha-256": "fd9c25aa54ba6d95bf93340658995cf1d115d47e7a3c62dbb5dfaf552136232b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/input.h"
+          },
+          "hashes": {
+            "sha-256": "b57bfabbbebf5cce24af76f8a3e02b678a1becb142d16359300c36308e4d335b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/keys.h"
+          },
+          "hashes": {
+            "sha-256": "9311709bbb8c271157be927003928ff02a9aa64504e9c1c566e6f783d42a3bac"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/console.h"
+          },
+          "hashes": {
+            "sha-256": "99bee3d756049775cd913db569ca9b8df07120095ee1f4e3e3c33a69ac8a5d25"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/cdaudio.h"
+          },
+          "hashes": {
+            "sha-256": "793791f0371cb96b1b9c264337bb853397f735f3b02a82cffa00e63d7d4d3183"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/win32/winquake.h"
+          },
+          "hashes": {
+            "sha-256": "02caf2ee18684278719cfa097255bac3a3f7e671374ec4a850859eb16d75a3ce"
+          }
+        }
+      ]
+    }
+  ]
+}

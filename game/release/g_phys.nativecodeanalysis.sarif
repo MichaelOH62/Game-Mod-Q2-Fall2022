@@ -1,0 +1,1553 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Dereferencing NULL pointer 'ent->think'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                },
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 2,
+                  "endLine": 108,
+                  "endColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_RunThink",
+                  "decoratedName": "SV_RunThink",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 97,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 99,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 102,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 105,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 106,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'ent->think' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 107,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 108,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "'ent->think' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                },
+                "region": {
+                  "startLine": 324,
+                  "startColumn": 22,
+                  "endLine": 324,
+                  "endColumn": 49
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_AddGravity",
+                  "decoratedName": "SV_AddGravity",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Dereferencing NULL pointer 'pusher'. See line 427 for an earlier location where this can occur"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                },
+                "region": {
+                  "startLine": 480,
+                  "startColumn": 8,
+                  "endLine": 480,
+                  "endColumn": 70
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_Push",
+                  "decoratedName": "SV_Push",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 405,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 405,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 406,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 406,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 407,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 407,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 408,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 409,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 415,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 416,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 417,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 420,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 421,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 415,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 416,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 417,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 420,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 421,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 413,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 427,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 428,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 427,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 428,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 425,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 432,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 433,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 436,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 437,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 438,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 439,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 441,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 444,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 445,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 446,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 449,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 450,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 450,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 452,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 457,
+                            "startColumn": 3
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 460,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 464,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 480,
+                            "startColumn": 43
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 483,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 484,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 485,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 486,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 489,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 490,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 496,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 497,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 498,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 499,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 500,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 501,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 504,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 505,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 507,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 508,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 518,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 519,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 520,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 522,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 450,
+                            "startColumn": 41
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 450,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 452,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 457,
+                            "startColumn": 3
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 460,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 464,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "'pusher' may be NULL (Skip this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 480,
+                            "startColumn": 43
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume '<branch condition>')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                          },
+                          "region": {
+                            "startLine": 480,
+                            "startColumn": 43
+                          }
+                        },
+                        "message": {
+                          "text": "'pusher' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                },
+                "region": {
+                  "startLine": 887,
+                  "startColumn": 18,
+                  "endLine": 887,
+                  "endColumn": 44
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_Physics_Step",
+                  "decoratedName": "SV_Physics_Step",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+                },
+                "region": {
+                  "startLine": 887,
+                  "startColumn": 18,
+                  "endLine": 887,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_Physics_Step",
+                  "decoratedName": "SV_Physics_Step",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_phys.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "73e6df6eed6c274da7eb6a1b0c3790eebe192e60d43e3c3cea0a2250ba0d0ecb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/g_local.h"
+          },
+          "hashes": {
+            "sha-256": "e01bc9cfffd93200e0db3f7c12a7655d646c6120ee9345df720ae5712d729e04"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/game.h"
+          },
+          "hashes": {
+            "sha-256": "9973c7905f0c25f02670c2e855192c1f4a15abe21de64126a88e7035ac03ddc7"
+          }
+        }
+      ]
+    }
+  ]
+}

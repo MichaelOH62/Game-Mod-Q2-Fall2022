@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>sys_win.c</FILENAME>
+      <LINE>234</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>28159</DEFECTCODE>
+    <DESCRIPTION>Consider using 'IsWindows*' instead of 'GetVersionExA'. Reason: Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.</DESCRIPTION>
+    <FUNCTION>Sys_Init</FUNCTION>
+    <DECORATED>Sys_Init</DECORATED>
+    <FUNCLINE>206</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>sys_win.c</FILENAME>
+      <LINE>265</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '20496' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>Sys_ConsoleInput</FUNCTION>
+    <DECORATED>Sys_ConsoleInput</DECORATED>
+    <FUNCLINE>265</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>sys_win.c</FILENAME>
+      <LINE>502</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: '_getcwd'.</DESCRIPTION>
+    <FUNCTION>Sys_GetGameAPI</FUNCTION>
+    <DECORATED>Sys_GetGameAPI</DECORATED>
+    <FUNCLINE>472</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\win32\</FILEPATH>
+      <FILENAME>sys_win.c</FILENAME>
+      <LINE>594</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>28251</DEFECTCODE>
+    <DESCRIPTION>Inconsistent annotation for 'WinMain': this instance has no annotations. See c:\program files (x86)\windows kits\10\include\10.0.19041.0\um\winbase.h(1006). </DESCRIPTION>
+    <FUNCTION>WinMain</FUNCTION>
+    <DECORATED>WinMain@16</DECORATED>
+    <FUNCLINE>594</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,745 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Dereferencing NULL pointer 'ent'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                },
+                "region": {
+                  "startLine": 149,
+                  "startColumn": 2,
+                  "endLine": 149,
+                  "endColumn": 19
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DoRespawn",
+                  "decoratedName": "DoRespawn",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 121,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 123,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 124,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 125,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 127,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 134,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 139,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 139,
+                            "startColumn": 34
+                          }
+                        },
+                        "message": {
+                          "text": "'master' may be NULL (Skip this loop)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 144,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "(alias) 'ent' receives the value of 'master' (which may be NULL)"
+                        }
+                      },
+                      "kinds": [
+                        "alias"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 144,
+                            "startColumn": 40
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'count<choice' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 149,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "'ent' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                },
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 31,
+                  "endLine": 190,
+                  "endColumn": 54
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Pickup_Powerup",
+                  "decoratedName": "Pickup_Powerup",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "Buffer overrun while writing to 'data'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                },
+                "region": {
+                  "startLine": 1057,
+                  "startColumn": 3,
+                  "endLine": 1057,
+                  "endColumn": 15
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PrecacheItem",
+                  "decoratedName": "PrecacheItem",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1017,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1017,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1018,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "'data' is an array of 64 elements (64 bytes)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1019,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1020,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1022,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!it' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1025,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'it->pickup_sound' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1027,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'it->world_model' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1029,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'it->view_model' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1031,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'it->icon' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1035,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'it->ammo&&it->ammo[0]' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1043,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1044,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!s||!s[0]' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1047,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume '*s')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1049,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1050,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume '*s&&*s!=32' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1053,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1054,
+                            "startColumn": 24
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'len>=64||len<5')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1055,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1056,
+                            "startColumn": 3
+                          }
+                        },
+                        "message": {
+                          "text": "'len' is an Input to 'memcpy' (declared at <no file>:0)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+                          },
+                          "region": {
+                            "startLine": 1057,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid write to 'data[64]', (writable range is 0 to 63)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/g_items.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "c4306aaf0ac37ea26d1bffefe9a707d4f356b5469ade50431e63f4fb2d46833c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/g_local.h"
+          },
+          "hashes": {
+            "sha-256": "686b57ac26c4a83564c5902b87aa753216bf09477e4d0a962df617843785a21c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/game.h"
+          },
+          "hashes": {
+            "sha-256": "843bb97283a8c39c897246b35785a48565242bc4494762b550765136024e3b4e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/p_menu.h"
+          },
+          "hashes": {
+            "sha-256": "44a69a5159236ea889a513dbb84d4bdf981c32f969f7e650f0995a6efda1d423"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/g_ctf.h"
+          },
+          "hashes": {
+            "sha-256": "743bd26a2817f4f27e4d3e414fddb5be1dc5c6ad38062dce00e195c1fef06bb0"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1811 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 475,
+                  "startColumn": 2,
+                  "endLine": 475,
+                  "endColumn": 31
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "WriteGame",
+                  "decoratedName": "WriteGame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 462,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 463,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 464,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 466,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 469,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 470,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 471,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 473,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 474,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 475,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 475,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fwrite'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 484,
+                  "startColumn": 2,
+                  "endLine": 484,
+                  "endColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "WriteGame",
+                  "decoratedName": "WriteGame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 462,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 463,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 464,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 466,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 469,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 470,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 471,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 473,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 474,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 475,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 477,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 478,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 479,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 481,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 481,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'i<game.maxclients' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 484,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an Input to 'fclose' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:152)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 484,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 499,
+                  "startColumn": 2,
+                  "endLine": 499,
+                  "endColumn": 30
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadGame",
+                  "decoratedName": "ReadGame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 489,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 490,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 491,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 493,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 495,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 496,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 497,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 499,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 499,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fread'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6054",
+          "message": {
+            "text": "String 'str' might not be zero-terminated."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 500,
+                  "startColumn": 6,
+                  "endLine": 500,
+                  "endColumn": 19
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadGame",
+                  "decoratedName": "ReadGame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 489,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 490,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 491,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "This expression may not zero-terminate 'str'"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 493,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 495,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 496,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!f' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 499,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'str' is an Output from 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 500,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'str' is an Input to 'strcmp' (declared at <no file>:0)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 500,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'str' is required to be zero-terminated by a SAL annotation on 'strcmp'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 514,
+                  "startColumn": 2,
+                  "endLine": 514,
+                  "endColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ReadGame",
+                  "decoratedName": "ReadGame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 489,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 490,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 491,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 493,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 495,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 496,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 497,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 499,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 500,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'strcmp(str, \"Dec  5 2022\")' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 506,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 507,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 509,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 510,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 511,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 511,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'i<game.maxclients' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 514,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an Input to 'fclose' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:152)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 514,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 641,
+                  "startColumn": 2,
+                  "endLine": 641,
+                  "endColumn": 28
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "WriteLevel",
+                  "decoratedName": "WriteLevel",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 630,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 631,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 632,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 633,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 635,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 636,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 637,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 640,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fwrite'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'f' could be '0'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                },
+                "region": {
+                  "startLine": 662,
+                  "startColumn": 2,
+                  "endLine": 662,
+                  "endColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "WriteLevel",
+                  "decoratedName": "WriteLevel",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 630,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 631,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 632,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 633,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 635,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 636,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'f' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 637,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 640,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 644,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 645,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 648,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'WriteLevelLocals' (declared on line 559)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 651,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 651,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'i<globals.num_edicts' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 659,
+                            "startColumn": 4
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 660,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an In/Out argument to 'fwrite' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:297)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 662,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' is an Input to 'fclose' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:152)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+                          },
+                          "region": {
+                            "startLine": 662,
+                            "startColumn": 2
+                          }
+                        },
+                        "message": {
+                          "text": "'f' should not be NULL, because this is not consistent with the SAL annotation on 'fclose'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/game/g_save.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "f947ac3286763cd58b690057973b2871ec2e39906e6f5a161250de1c685f7751"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/g_local.h"
+          },
+          "hashes": {
+            "sha-256": "e01bc9cfffd93200e0db3f7c12a7655d646c6120ee9345df720ae5712d729e04"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/game.h"
+          },
+          "hashes": {
+            "sha-256": "9973c7905f0c25f02670c2e855192c1f4a15abe21de64126a88e7035ac03ddc7"
+          }
+        }
+      ]
+    }
+  ]
+}

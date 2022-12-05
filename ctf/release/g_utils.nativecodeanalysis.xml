@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>g_utils.c</FILENAME>
+      <LINE>94</LINE>
+      <COLUMN>58</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>findradius</FUNCTION>
+    <DECORATED>findradius</DECORATED>
+    <FUNCLINE>78</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>g_utils.c</FILENAME>
+      <LINE>382</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>vectoangles</FUNCTION>
+    <DECORATED>vectoangles</DECORATED>
+    <FUNCLINE>358</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>g_utils.c</FILENAME>
+      <LINE>382</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>vectoangles</FUNCTION>
+    <DECORATED>vectoangles</DECORATED>
+    <FUNCLINE>358</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>g_utils.c</FILENAME>
+      <LINE>432</LINE>
+      <COLUMN>51</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>G_Spawn</FUNCTION>
+    <DECORATED>G_Spawn</DECORATED>
+    <FUNCLINE>422</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

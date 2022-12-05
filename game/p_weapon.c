@@ -1547,10 +1547,13 @@ void weapon_bfg_fire (edict_t *ent)
 	int		damage;
 	float	damage_radius = 1000;
 
+	//fly speed before modifying by x
+	int fly_speed = 1000;
+
 	if (deathmatch->value)
 		damage = 200;
 	else
-		damage = 500;
+		damage = 250;	//Reduce damage, too OP with modifications
 
 	if (ent->client->ps.gunframe == 9)
 	{
@@ -1581,14 +1584,38 @@ void weapon_bfg_fire (edict_t *ent)
 
 	VectorScale (forward, -2, ent->client->kick_origin);
 
+	//generate a random float between 0 and 1
+	float x = random();
+
+	//ensure the fly speed is not too slow
+	if (x <= 0.25)
+	{
+		fly_speed = 250;
+	}
+	else
+	{
+		fly_speed = fly_speed * x;
+	}
+
 	// make a big pitch kick with an inverse fall
-	ent->client->v_dmg_pitch = -40;
+	ent->client->v_dmg_pitch = -100*x;	//kick is random based on x
 	ent->client->v_dmg_roll = crandom()*8;
 	ent->client->v_dmg_time = level.time + DAMAGE_TIME;
 
 	VectorSet(offset, 8, 8, ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_bfg (ent, start, forward, damage, 400, damage_radius);
+
+	//fly speed is random based on x
+	fire_bfg (ent, start, forward, damage, fly_speed, damage_radius);
+
+	/*
+	fly speed and kick should be proportional
+	i.e., as fly speed decreases kick decreases
+
+	adds an element of randomness so that the more
+	powerful a blast is, the larger it's fly speed
+	and kick will be
+	*/
 
 	ent->client->ps.gunframe++;
 

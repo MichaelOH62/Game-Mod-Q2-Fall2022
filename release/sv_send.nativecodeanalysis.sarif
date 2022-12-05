@@ -1,0 +1,433 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                },
+                "region": {
+                  "startLine": 333,
+                  "startColumn": 44,
+                  "endLine": 333,
+                  "endColumn": 73
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_StartSound",
+                  "decoratedName": "SV_StartSound",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "Buffer overrun while writing to 'msgbuf'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                },
+                "region": {
+                  "startLine": 522,
+                  "startColumn": 4,
+                  "endLine": 522,
+                  "endColumn": 37
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SV_SendClientMessages",
+                  "decoratedName": "SV_SendClientMessages",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 492,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 493,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 494,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 495,
+                            "startColumn": 8
+                          }
+                        },
+                        "message": {
+                          "text": "'msgbuf' is an array of 1400 elements (1400 bytes)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 496,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 498,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'msglen' is NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 501,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'sv.state==ss_demo&&sv.demofile')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 503,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'sv_paused->value' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 508,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'msglen' is an Output from 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 509,
+                            "startColumn": 10
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'r!=1' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 514,
+                            "startColumn": 11
+                          }
+                        },
+                        "message": {
+                          "text": "'msglen' is an Input to and receives the Return value from 'LittleLong' (declared at c:\\git\\game-mod-q2-fall2022\\game\\q_shared.h:237)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 515,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume 'msglen==-1' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 520,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'msglen>1400')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 521,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 522,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "'msglen' is an Input to 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+                          },
+                          "region": {
+                            "startLine": 522,
+                            "startColumn": 6
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid write to 'msgbuf', (outside its writable range)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/server/sv_send.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "11c61f37b83c366dba90947f2c532a9db4dab6e46024e7105fe0a2cf140ae007"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/server/server.h"
+          },
+          "hashes": {
+            "sha-256": "a1b90b3d2a6315a7ed8c3c30e6fb6797814ae62b4d7622fcaefda8dae4fbb093"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qcommon.h"
+          },
+          "hashes": {
+            "sha-256": "97e97589a4c42a328eb41b5e6f9b7f3f0674ece33b26a2e09fb69ba181107230"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qfiles.h"
+          },
+          "hashes": {
+            "sha-256": "c57f82fc187b6242158e0bca02b0e13b2668dfeec94e313f444f584a56c6d1c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/game.h"
+          },
+          "hashes": {
+            "sha-256": "9973c7905f0c25f02670c2e855192c1f4a15abe21de64126a88e7035ac03ddc7"
+          }
+        }
+      ]
+    }
+  ]
+}

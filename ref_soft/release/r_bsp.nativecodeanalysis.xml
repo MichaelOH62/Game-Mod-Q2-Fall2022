@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_bsp.c</FILENAME>
+      <LINE>336</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '18048' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>R_DrawSolidClippedSubmodelPolygons</FUNCTION>
+    <DECORATED>R_DrawSolidClippedSubmodelPolygons</DECORATED>
+    <FUNCLINE>336</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

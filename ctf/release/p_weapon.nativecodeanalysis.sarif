@@ -1,0 +1,169 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/p_weapon.c"
+                },
+                "region": {
+                  "startLine": 603,
+                  "startColumn": 57,
+                  "endLine": 603,
+                  "endColumn": 76
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "weapon_grenade_fire",
+                  "decoratedName": "weapon_grenade_fire",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/p_weapon.c"
+                },
+                "region": {
+                  "startLine": 929,
+                  "startColumn": 16,
+                  "endLine": 929,
+                  "endColumn": 48
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Weapon_HyperBlaster_Fire",
+                  "decoratedName": "Weapon_HyperBlaster_Fire",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/p_weapon.c"
+                },
+                "region": {
+                  "startLine": 929,
+                  "startColumn": 16,
+                  "endLine": 929,
+                  "endColumn": 43
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Weapon_HyperBlaster_Fire",
+                  "decoratedName": "Weapon_HyperBlaster_Fire",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ctf/p_weapon.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "f8d6cc959e59f8c8787803165c8ef8d202c1782d373cacb4de0bab4ff9443ff8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/g_local.h"
+          },
+          "hashes": {
+            "sha-256": "686b57ac26c4a83564c5902b87aa753216bf09477e4d0a962df617843785a21c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/game.h"
+          },
+          "hashes": {
+            "sha-256": "843bb97283a8c39c897246b35785a48565242bc4494762b550765136024e3b4e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/p_menu.h"
+          },
+          "hashes": {
+            "sha-256": "44a69a5159236ea889a513dbb84d4bdf981c32f969f7e650f0995a6efda1d423"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/g_ctf.h"
+          },
+          "hashes": {
+            "sha-256": "743bd26a2817f4f27e4d3e414fddb5be1dc5c6ad38062dce00e195c1fef06bb0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ctf/m_player.h"
+          },
+          "hashes": {
+            "sha-256": "45875c7ea306717ba5bbf3f5ba30288adeb53b743ee65eb0491e6a1a917e6521"
+          }
+        }
+      ]
+    }
+  ]
+}

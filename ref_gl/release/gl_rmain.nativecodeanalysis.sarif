@@ -1,0 +1,149 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'putenv'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ref_gl/gl_rmain.c"
+                },
+                "region": {
+                  "startLine": 1419,
+                  "startColumn": 4,
+                  "endLine": 1419,
+                  "endColumn": 12
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "R_BeginFrame",
+                  "decoratedName": "R_BeginFrame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'putenv'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ref_gl/gl_rmain.c"
+                },
+                "region": {
+                  "startLine": 1421,
+                  "startColumn": 4,
+                  "endLine": 1421,
+                  "endColumn": 12
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "R_BeginFrame",
+                  "decoratedName": "R_BeginFrame",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31629.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/git/Game-Mod-Q2-Fall2022/ref_gl/gl_rmain.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "8dd09f46ae02390c29a063cebe241930f4de5dbb6e1b3e4593a7054b1d99692c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ref_gl/gl_local.h"
+          },
+          "hashes": {
+            "sha-256": "bdb70926949e13f55e9595234cacd636c0bd203152252afa210035e8145c0838"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/client/ref.h"
+          },
+          "hashes": {
+            "sha-256": "89dfd6912550cb4cffd6d159d1e3f403a5f14a8bb61eddbbccf580fb55556fe5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qcommon.h"
+          },
+          "hashes": {
+            "sha-256": "97e97589a4c42a328eb41b5e6f9b7f3f0674ece33b26a2e09fb69ba181107230"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/game/q_shared.h"
+          },
+          "hashes": {
+            "sha-256": "7f698a6921f620bbef996f06fea32d4ee69bcf2f8b1e3032d432a0246512984d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/qcommon/qfiles.h"
+          },
+          "hashes": {
+            "sha-256": "c57f82fc187b6242158e0bca02b0e13b2668dfeec94e313f444f584a56c6d1c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ref_gl/qgl.h"
+          },
+          "hashes": {
+            "sha-256": "5323edad609a707ec7b8c9278b3776f8f85c0ad6ae77f3e997a7e6e18cf3b057"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/git/game-mod-q2-fall2022/ref_gl/gl_model.h"
+          },
+          "hashes": {
+            "sha-256": "a0e7e5d6d7c0bab2d0929c6d2309c542a3a78091bcd3d454abf795886003fa43"
+          }
+        }
+      ]
+    }
+  ]
+}

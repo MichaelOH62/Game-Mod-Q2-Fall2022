@@ -156,6 +156,7 @@ C:\git\Game-Mod-Q2-Fall2022\client\console.c(669,3): warning C4996: 'sprintf': T
   crc.c
   cvar.c
 C:\git\Game-Mod-Q2-Fall2022\qcommon\cvar.c(435,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Running Code Analysis for C/C++...
   Generating Code...
 C:\git\Game-Mod-Q2-Fall2022\client\console.c(370): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\conproc.c(116): warning C4701: potentially uninitialized local variable 'hFile' used
@@ -171,8 +172,8 @@ C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(494): warning C4701: potentially un
 C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(494): warning C4703: potentially uninitialized local pointer variable 'oldstate' used
 C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(62): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(53): warning C4706: assignment within conditional expression
-C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(222): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(202): warning C4706: assignment within conditional expression
+C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(222): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(449): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\cd_win.c(458): warning C4706: assignment within conditional expression
   Compiling...
@@ -199,7 +200,6 @@ C:\git\Game-Mod-Q2-Fall2022\client\keys.c(252,4): warning C4996: 'strtok': This 
 C:\git\Game-Mod-Q2-Fall2022\client\keys.c(522,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\git\Game-Mod-Q2-Fall2022\client\keys.c(599,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\git\Game-Mod-Q2-Fall2022\client\keys.c(601,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\git\Game-Mod-Q2-Fall2022\client\keys.c(768,2): error C2143: syntax error: missing ';' before '}'
   m_flash.c
   md4.c
   menu.c
@@ -422,6 +422,7 @@ C:\git\Game-Mod-Q2-Fall2022\server\sv_init.c(198,3): warning C4996: 'sprintf': T
 C:\git\Game-Mod-Q2-Fall2022\server\sv_init.c(406,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\git\Game-Mod-Q2-Fall2022\server\sv_init.c(427,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\git\Game-Mod-Q2-Fall2022\server\sv_init.c(434,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Running Code Analysis for C/C++...
   Generating Code...
 C:\git\Game-Mod-Q2-Fall2022\server\sv_game.c(102): warning C4701: potentially uninitialized local variable 'n' used
 C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'newent' used
@@ -429,8 +430,8 @@ C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(171): warning C4703: potentially un
 C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(171): warning C4701: potentially uninitialized local variable 'oldent' used
 C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(171): warning C4703: potentially uninitialized local pointer variable 'oldent' used
 C:\git\Game-Mod-Q2-Fall2022\win32\snd_win.c(692): warning C4701: potentially uninitialized local variable 's' used
-C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(124): warning C4715: 'NET_CompareAdr': not all control paths return a value
 C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(154): warning C4715: 'NET_CompareBaseAdr': not all control paths return a value
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(124): warning C4715: 'NET_CompareAdr': not all control paths return a value
 C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(235): warning C4706: assignment within conditional expression
 C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(427): warning C4701: potentially uninitialized local variable 'net_socket' used
 C:\git\Game-Mod-Q2-Fall2022\client\menu.c(3580): warning C4715: 'PlayerConfig_ScanDirectories': not all control paths return a value
@@ -497,4 +498,128 @@ C:\git\Game-Mod-Q2-Fall2022\win32\vid_menu.c(118,33): warning C4100: 'unused': u
 C:\git\Game-Mod-Q2-Fall2022\win32\vid_menu.c(201,31): warning C4210: nonstandard extension used: function given file scope
 C:\git\Game-Mod-Q2-Fall2022\win32\vid_menu.c(199,34): warning C4100: 'unused': unreferenced formal parameter
   x86.c
+  Running Code Analysis for C/C++...
   Generating Code...
+  quake2.vcxproj -> C:\git\Game-Mod-Q2-Fall2022\release\quake2.exe
+C:\git\Game-Mod-Q2-Fall2022\client\cl_cin.c(427): warning C6262: Function uses '137416' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_cin.c(509): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(483): warning C6385: Reading invalid data from 'cl_entities'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(1369): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(1369): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(1393): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_ents.c(1458): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(905): warning C6386: Buffer overrun while writing to 'particles'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1218): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1222): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1866): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1900): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1905): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1965): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(1975): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_fx.c(2228): warning C6001: Using uninitialized memory 'time'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_input.c(479): warning C6001: Using uninitialized memory 'buf'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_main.c(322): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_main.c(1064): warning C6053: The prior call to 'strncpy' might not zero-terminate string 'sk'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_newfx.c(63): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_newfx.c(63): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_newfx.c(377): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_newfx.c(969): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_newfx.c(1005): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_parse.c(330): warning C6011: Dereferencing NULL pointer 'fs_gamedirvar->string'. 
+C:\git\Game-Mod-Q2-Fall2022\client\cl_parse.c(528): warning C6385: Reading invalid data from 'cl.configstrings'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_scrn.c(657): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_scrn.c(1173): warning C6385: Reading invalid data from 'cl.frame.playerstate.stats'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_scrn.c(1176): warning C6385: Reading invalid data from 'cl.configstrings'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_tent.c(1255): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_tent.c(1255): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_tent.c(1470): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_tent.c(1470): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_tent.c(1610): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\cl_view.c(339): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\client\cl_view.c(375): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(514): warning C6386: Buffer overrun while writing to 'map_visibility'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(536): warning C6386: Buffer overrun while writing to 'map_entitystring'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(598): warning C6011: Dereferencing NULL pointer 'buf'. 
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(671): warning C6385: Reading invalid data from 'map_leafs'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(678): warning C6385: Reading invalid data from 'map_leafs'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(685): warning C6385: Reading invalid data from 'map_leafs'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1061): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1071): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1269): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1270): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1271): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1296): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\cmodel.c(1303): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\common.c(462): warning C6385: Reading invalid data from 'bytedirs'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\common.c(1171): warning C6387: 'z' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\common.c(1174): warning C6011: Dereferencing NULL pointer 'z'. 
+C:\git\Game-Mod-Q2-Fall2022\win32\conproc.c(116): warning C6001: Using uninitialized memory 'hFile'.
+C:\git\Game-Mod-Q2-Fall2022\win32\conproc.c(116): warning C6001: Using uninitialized memory 'heventParent'.
+C:\git\Game-Mod-Q2-Fall2022\win32\conproc.c(116): warning C6001: Using uninitialized memory 'heventChild'.
+C:\git\Game-Mod-Q2-Fall2022\client\console.c(180): warning C6386: Buffer overrun while writing to 'buffer'.
+C:\git\Game-Mod-Q2-Fall2022\client\console.c(245): warning C6262: Function uses '32796' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\files.c(448): warning C6262: Function uses '262184' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\files.c(709): warning C6387: 'list' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\files.c(717): warning C6011: Dereferencing NULL pointer 'list'. See line 709 for an earlier location where this can occur
+C:\git\Game-Mod-Q2-Fall2022\win32\in_win.c(520): warning C6001: Using uninitialized memory 'mmr'.
+C:\git\Game-Mod-Q2-Fall2022\win32\in_win.c(878): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\win32\in_win.c(878): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\win32\in_win.c(859): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\win32\in_win.c(859): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\client\keys.c(252): warning C6031: Return value ignored: 'strtok'.
+C:\git\Game-Mod-Q2-Fall2022\client\keys.c(343): warning C6385: Reading invalid data from 'key_lines'.
+C:\git\Game-Mod-Q2-Fall2022\client\menu.c(134): warning C6385: Reading invalid data from 'm_layers'.
+C:\git\Game-Mod-Q2-Fall2022\client\menu.c(2589): warning C6387: 'mapnames[i]' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\client\menu.c(2591): warning C6386: Buffer overrun while writing to 'mapnames'.
+C:\git\Game-Mod-Q2-Fall2022\client\menu.c(3528): warning C6387: 'skinnames' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\client\menu.c(3552): warning C6011: Dereferencing NULL pointer 'skinnames'. See line 3528 for an earlier location where this can occur
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(201): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(202): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(203): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(204): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(205): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(206): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(207): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(208): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(209): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(210): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(211): warning C6031: Return value ignored: 'sscanf'.
+C:\git\Game-Mod-Q2-Fall2022\win32\net_wins.c(427): warning C6001: Using uninitialized memory 'net_socket'.
+C:\git\Game-Mod-Q2-Fall2022\qcommon\pmove.c(354): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\pmove.c(354): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\qcommon\pmove.c(354): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(760): warning C28251: Inconsistent annotation for 'sqrt': this instance has no annotations. See <no file>(0). 
+C:\git\Game-Mod-Q2-Fall2022\game\q_shared.c(1223): warning C6262: Function uses '65556' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\win32\q_shwin.c(137): warning C6031: Return value ignored: '_mkdir'.
+C:\git\Game-Mod-Q2-Fall2022\client\qmenu.c(204): warning C6031: Return value ignored: 'strtok'.
+C:\git\Game-Mod-Q2-Fall2022\client\snd_dma.c(212): warning C6011: Dereferencing NULL pointer 'name'. 
+C:\git\Game-Mod-Q2-Fall2022\client\snd_dma.c(215): warning C6387: 'name' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\client\snd_dma.c(220): warning C6387: 'name' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\client\snd_dma.c(243): warning C6387: 'name' could be '0'.
+C:\git\Game-Mod-Q2-Fall2022\client\snd_mix.c(163): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\win32\snd_win.c(692): warning C6001: Using uninitialized memory 's'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(192): warning C6262: Function uses '65556' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(445): warning C6054: String 'mapcmd' might not be zero-terminated.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(522): warning C6011: Dereferencing NULL pointer 'savedInuse'. 
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(522): warning C6386: Buffer overrun while writing to 'savedInuse'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(530): warning C6385: Reading invalid data from 'savedInuse'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ccmds.c(882): warning C6262: Function uses '32928' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(171): warning C6001: Using uninitialized memory 'oldent'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(179): warning C6001: Using uninitialized memory 'newent'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_ents.c(680): warning C6262: Function uses '32888' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_game.c(176): warning C6011: Dereferencing NULL pointer 'name'. 
+C:\git\Game-Mod-Q2-Fall2022\server\sv_game.c(201): warning C6385: Reading invalid data from 'sv.configstrings'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_game.c(390): warning C6011: Dereferencing NULL pointer 'ge'. 
+C:\git\Game-Mod-Q2-Fall2022\server\sv_main.c(771): warning C6031: Return value ignored: 'rand'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_send.c(333): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\server\sv_send.c(522): warning C6386: Buffer overrun while writing to 'msgbuf'.
+C:\git\Game-Mod-Q2-Fall2022\server\sv_world.c(115): warning C26451: Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).
+C:\git\Game-Mod-Q2-Fall2022\server\sv_world.c(500): warning C6011: Dereferencing NULL pointer 'model'. 
+C:\git\Game-Mod-Q2-Fall2022\win32\sys_win.c(234): warning C28159: Consider using 'IsWindows*' instead of 'GetVersionExA'. Reason: Deprecated. Use VerifyVersionInfo* or IsWindows* macros from VersionHelpers.
+C:\git\Game-Mod-Q2-Fall2022\win32\sys_win.c(265): warning C6262: Function uses '20496' bytes of stack.  Consider moving some data to heap.
+C:\git\Game-Mod-Q2-Fall2022\win32\sys_win.c(502): warning C6031: Return value ignored: '_getcwd'.
+C:\git\Game-Mod-Q2-Fall2022\win32\sys_win.c(594): warning C28251: Inconsistent annotation for 'WinMain': this instance has no annotations. See c:\program files (x86)\windows kits\10\include\10.0.19041.0\um\winbase.h(1006). 
+C:\git\Game-Mod-Q2-Fall2022\win32\vid_dll.c(597): warning C28182: Dereferencing NULL pointer. 'GetRefAPI' contains the same NULL value as 'GetRefAPI=(void *)GetProcAddress(reflib_library, "GetRefAPI")' did. 
+C:\git\Game-Mod-Q2-Fall2022\win32\vid_dll.c(740): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\win32\vid_menu.c(184): warning C6031: Return value ignored: 'putenv'.
+C:\git\Game-Mod-Q2-Fall2022\win32\vid_menu.c(186): warning C6031: Return value ignored: 'putenv'.

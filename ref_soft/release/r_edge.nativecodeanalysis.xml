@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_edge.c</FILENAME>
+      <LINE>635</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>Function uses '48048' bytes of stack.  Consider moving some data to heap.</DESCRIPTION>
+    <FUNCTION>R_ScanEdges</FUNCTION>
+    <DECORATED>R_ScanEdges</DECORATED>
+    <FUNCLINE>635</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_edge.c</FILENAME>
+      <LINE>811</LINE>
+      <COLUMN>28</COLUMN>
+    </SFA>
+    <DEFECTCODE>6297</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow.  Results might not be an expected value.</DESCRIPTION>
+    <FUNCTION>D_CalcGradients</FUNCTION>
+    <DECORATED>D_CalcGradients</DECORATED>
+    <FUNCLINE>801</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_edge.c</FILENAME>
+      <LINE>811</LINE>
+      <COLUMN>28</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '&lt;&lt;' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '&lt;&lt;' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>D_CalcGradients</FUNCTION>
+    <DECORATED>D_CalcGradients</DECORATED>
+    <FUNCLINE>801</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

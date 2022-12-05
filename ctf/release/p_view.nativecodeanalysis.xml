@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>253</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SV_CalcViewOffset</FUNCTION>
+    <DECORATED>SV_CalcViewOffset</DECORATED>
+    <FUNCLINE>222</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>265</LINE>
+      <COLUMN>34</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SV_CalcViewOffset</FUNCTION>
+    <DECORATED>SV_CalcViewOffset</DECORATED>
+    <FUNCLINE>222</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>304</LINE>
+      <COLUMN>33</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SV_CalcViewOffset</FUNCTION>
+    <DECORATED>SV_CalcViewOffset</DECORATED>
+    <FUNCLINE>222</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>307</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>SV_CalcViewOffset</FUNCTION>
+    <DECORATED>SV_CalcViewOffset</DECORATED>
+    <FUNCLINE>222</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>527</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>P_FallingDamage</FUNCTION>
+    <DECORATED>P_FallingDamage</DECORATED>
+    <FUNCLINE>501</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>1042</LINE>
+      <COLUMN>50</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ClientEndServerFrame</FUNCTION>
+    <DECORATED>ClientEndServerFrame</DECORATED>
+    <FUNCLINE>986</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ctf\</FILEPATH>
+      <FILENAME>p_view.c</FILENAME>
+      <LINE>1042</LINE>
+      <COLUMN>32</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ClientEndServerFrame</FUNCTION>
+    <DECORATED>ClientEndServerFrame</DECORATED>
+    <FUNCLINE>986</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

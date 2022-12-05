@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_main.c</FILENAME>
+      <LINE>322</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'putenv'.</DESCRIPTION>
+    <FUNCTION>CL_Setenv_f</FUNCTION>
+    <DECORATED>CL_Setenv_f</DECORATED>
+    <FUNCLINE>304</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+      <FILENAME>cl_main.c</FILENAME>
+      <LINE>1064</LINE>
+      <COLUMN>28</COLUMN>
+    </SFA>
+    <DEFECTCODE>6053</DEFECTCODE>
+    <DESCRIPTION>The prior call to 'strncpy' might not zero-terminate string 'sk'.</DESCRIPTION>
+    <FUNCTION>CL_FixUpGender</FUNCTION>
+    <DECORATED>CL_FixUpGender</DECORATED>
+    <FUNCLINE>1050</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>1</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1052</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1053</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1055</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1057</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1063</LINE>
+        <COLUMN>2</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'sk' is Output from 'strncpy', which may not zero-terminate it</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1064</LINE>
+        <COLUMN>28</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'sk' is an Input to 'strchr' (declared at c:\program files\microsoft visual studio\2022\community\vc\tools\msvc\14.33.31629\include\vcruntime_string.h:70)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\client\</FILEPATH>
+        <FILENAME>cl_main.c</FILENAME>
+        <LINE>1064</LINE>
+        <COLUMN>28</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'sk' is required to be zero-terminated by a SAL annotation on 'strchr'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

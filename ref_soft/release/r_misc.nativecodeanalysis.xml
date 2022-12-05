@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_misc.c</FILENAME>
+      <LINE>391</LINE>
+      <COLUMN>42</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>R_ViewChanged</FUNCTION>
+    <DECORATED>R_ViewChanged</DECORATED>
+    <FUNCLINE>332</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\git\Game-Mod-Q2-Fall2022\ref_soft\</FILEPATH>
+      <FILENAME>r_misc.c</FILENAME>
+      <LINE>405</LINE>
+      <COLUMN>42</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>R_ViewChanged</FUNCTION>
+    <DECORATED>R_ViewChanged</DECORATED>
+    <FUNCLINE>332</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
