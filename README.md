@@ -15,7 +15,8 @@ Goals for this project are:
 - [x] In-Game Help Screen explaining mod changes\
   -Modified the existing Help Screen to reflect the Zombies mod.
 - [ ] Wave Based System
-- [ ] Rethemed Weapons
+- [x] Rethemed Weapons
+  -All 10 weapons have been modified to change the way each weapon behaves.
 - [ ] 5 Different Perks
 - [ ] 5 Different Drops / Item Pickups / Powerups
 - [ ] Point Based System / Buy Menu
