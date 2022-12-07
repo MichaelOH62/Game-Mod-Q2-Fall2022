@@ -939,6 +939,12 @@ void ClientCommand (edict_t *ent)
 		Cmd_Help_f (ent);
 		return;
 	}
+	//Add buymenu command to draw the Buy Menu
+	if (Q_stricmp(cmd, "buymenu") == 0)
+	{
+		Cmd_BuyMenu_f(ent);
+		return;
+	}
 
 	if (level.intermissiontime)
 		return;

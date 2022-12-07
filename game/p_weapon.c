@@ -1253,7 +1253,7 @@ void Chaingun_Fire (edict_t *ent)
 	for (i=0 ; i<shots ; i++)
 	{
 		// get start / end positions
-		gi.centerprintf(ent, "Shots = %d", shots);
+		//gi.centerprintf(ent, "Shots = %d", shots);
 		AngleVectors (ent->client->v_angle, forward, right, up);
 		r = 7 + crandom()*4;
 		u = crandom()*4;

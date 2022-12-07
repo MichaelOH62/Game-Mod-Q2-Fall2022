@@ -277,6 +277,7 @@ void Cmd_Score_f (edict_t *ent)
 {
 	ent->client->showinventory = false;
 	ent->client->showhelp = false;
+	ent->client->showbuymenu = false;
 
 	if (!deathmatch->value && !coop->value)
 		return;
@@ -291,6 +292,59 @@ void Cmd_Score_f (edict_t *ent)
 	DeathmatchScoreboard (ent);
 }
 
+/*
+==================
+BuyMenu
+
+Draw buy menu
+==================
+*/
+void BuyMenu(edict_t* ent)
+{
+	//TODO: Modify this to display all purchasable items
+	char	string[1024];
+	char* sk;
+
+	if (skill->value == 0)
+		sk = "easy";
+	else if (skill->value == 1)
+		sk = "medium";
+	else if (skill->value == 2)
+		sk = "hard";
+	else
+		sk = "hard+";
+
+	//Create custom strings for help screen
+	char* modname = "Quake 2 Zombies Mod";
+	char* help1 = "Zombies spawn in waves.\nWaves become harder.\nSurvive!";
+	char* help2 = "Access Buy Menu with TAB.\nSpend points wisely!";
+
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	// send the layout
+	Com_sprintf(string, sizeof(string),
+		"xv 32 yv 8 picn inventory "		// background
+		"xv 202 yv 12 string2 \"%s\" "		// skill
+		"xv 0 yv 24 cstring2 \"%s\" "		// mod name
+		"xv 0 yv 54 cstring2 \"%s\" "		// help 1
+		"xv 0 yv 110 cstring2 \"%s\" "		// help 2
+		"xv 50 yv 164 string2 \" kills     waves     perks\" "
+		"xv 50 yv 172 string2 \" %3i         %i        %i/%i\" ",
+		sk,
+		modname,
+		help1,
+		help2,
+		client->killCount,
+		client->waveCount,
+		client->perkCount, 5);
+
+	gi.WriteByte(svc_layout);
+	gi.WriteString(string);
+	gi.unicast(ent, true);
+}
 
 /*
 ==================
@@ -316,7 +370,7 @@ void HelpComputer (edict_t *ent)
 	//Create custom strings for help screen
 	char* modname = "Quake 2 Zombies Mod";
 	char* help1 = "Zombies spawn in waves.\nWaves become harder.\nSurvive!";
-	char* help2 = "Access Buy Menu with B.\nSpend points wisely!";
+	char* help2 = "Access Buy Menu with TAB.\nSpend points wisely!";
 
 	//Used to populate values dependent on the client
 	gclient_t* client;
@@ -345,6 +399,29 @@ void HelpComputer (edict_t *ent)
 	gi.unicast (ent, true);
 }
 
+/*
+==================
+Cmd_BuyMenu_f
+
+Display the buy menu
+==================
+*/
+void Cmd_BuyMenu_f(edict_t* ent)
+{
+	ent->client->showinventory = false;
+	ent->client->showscores = false;
+	ent->client->showhelp = false;
+
+	//Hide the buy menu if it is currently displaying
+	if (ent->client->showbuymenu)
+	{
+		ent->client->showbuymenu = false;
+		return;
+	}
+
+	ent->client->showbuymenu = true;
+	BuyMenu(ent);	//Draw the buy menu
+}
 
 /*
 ==================
@@ -364,6 +441,7 @@ void Cmd_Help_f (edict_t *ent)
 
 	ent->client->showinventory = false;
 	ent->client->showscores = false;
+	ent->client->showbuymenu = false;
 
 	if (ent->client->showhelp && (ent->client->pers.game_helpchanged == game.helpchanged))
 	{
@@ -507,7 +585,8 @@ void G_SetStats (edict_t *ent)
 	}
 	else
 	{
-		if (ent->client->showscores || ent->client->showhelp)
+		//add the new buymenu here
+		if (ent->client->showscores || ent->client->showhelp || ent->client->showbuymenu)
 			ent->client->ps.stats[STAT_LAYOUTS] |= 1;
 		if (ent->client->showinventory && ent->client->pers.health > 0)
 			ent->client->ps.stats[STAT_LAYOUTS] |= 2;
