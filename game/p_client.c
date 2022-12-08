@@ -494,6 +494,30 @@ void LookAtKiller (edict_t *self, edict_t *inflictor, edict_t *attacker)
 }
 
 /*
+==============
+RemoveZombiesPerks
+
+Call this whenever the player's
+going to die but they have quick revive.
+This function removes all perks.
+==============
+*/
+void RemoveZombiesPerks(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	client->hasJuggernog = false;
+	client->hasStaminUp = false;
+	client->hasUltraJump = false;
+	client->hasDoubleTap = false;
+	client->hasQuickRevive = false;
+
+	client->perkCount = 0;
+}
+
+/*
 ==================
 player_die
 ==================
@@ -501,6 +525,17 @@ player_die
 void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	int		n;
+
+	//Check if the player has the Quick Revive Perk before dying
+	if (self->client->hasQuickRevive)
+	{
+		gi.cprintf(self, PRINT_HIGH, "Quick Revive Activated!");
+
+		self->health = 50;
+		RemoveZombiesPerks(self);
+
+		return;
+	}
 
 	VectorClear (self->avelocity);
 
@@ -1245,7 +1280,8 @@ void PutClientInServer (edict_t *ent)
 		client->resp.spectator = false;
 
 	if (!KillBox (ent))
-	{	// could't spawn in?
+	{	
+		// could't spawn in?
 	}
 
 	gi.linkentity (ent);
