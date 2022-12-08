@@ -166,6 +166,14 @@ void Cmd_Give_f (edict_t *ent)
 
 	name = gi.args();
 
+	//Added for Zombies mod testing
+	if (Q_stricmp(name, "points") == 0)
+	{
+		ent->client->pointCount = 100000;
+		ent->client->valChanged = true;
+		return;
+	}
+
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;
 	else
@@ -399,6 +407,12 @@ void Cmd_Use_f (edict_t *ent)
 	gitem_t		*it;
 	char		*s;
 
+	//Used to see if the player wants to buy a weapon they already own
+	qboolean itemOwned = false;
+
+	//Used for giving the player a weapon they purchase
+	edict_t* it_ent;
+
 	s = gi.args();
 
 	//Check if the player is purchasing an item
@@ -406,45 +420,395 @@ void Cmd_Use_f (edict_t *ent)
 	{
 		//Determine what weapon is going to be purchased
 
-		//TODO: Add code to handle actually purchasing the item
-		//AKA	Deduct the points according to the item's cost from the player
-		//		Give the player the weapon or perk
+		//TODO: Add code to handle purchasing perks
+
+		//NOTE: Make max ammos common because default ammo is not a lot
+
+		it = FindItem(s);
+		index = ITEM_INDEX(it);
+		if (ent->client->pers.inventory[index])
+		{
+			//Added extra new lines for nice formatting with the zombies UI
+			itemOwned = true;
+		}
 
 		if ((Q_stricmp(s, "Shotgun") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the shotgun");
+			//Want to buy the shotgun
+
+			//Check if the player already has a shotgun
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the shotgun.\n\n");
+				
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the shotgun
+
+				//Check if the player can afford the shotgun
+				if (ent->client->pointCount < ent->client->shotgunPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the shotgun.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->shotgunPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the shotgun here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Shotgun purchased for 1000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Super Shotgun") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the super shotgun");
+			//Want to buy the super shotgun
+
+			//Check if the player already has a super shotgun
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the super shotgun.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the super shotgun
+
+				//Check if the player can afford the super shotgun
+				if (ent->client->pointCount < ent->client->supershotgunPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the super shotgun.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->supershotgunPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the super shotgun here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Super shotgun purchased for 3000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Machinegun") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the machinegun");
+			//Want to buy the machinegun
+
+			//Check if the player already has a machinegun
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the machinegun.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the machinegun
+
+				//Check if the player can afford the machinegun
+				if (ent->client->pointCount < ent->client->machinegunPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the machinegun.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->machinegunPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the machinegun here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Machinegun purchased for 2000 points.");
+				}
+			}
 		}
-		else if ((Q_stricmp(s, "Chaingun") == 0))
+		else if ((Q_stricmp(s, "hyperblaster") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the chaingun");
+			//Want to buy the hyperblaster
+
+			//Check if the player already has a hyperblaster
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the hyperblaster.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the hyperblaster
+
+				//Check if the player can afford the hyperblaster
+				if (ent->client->pointCount < ent->client->hyperblasterPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the hyperblaster.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->hyperblasterPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the hyperblaster here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "hyperblaster purchased for 4000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Grenade Launcher") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the grenade launcher");
+			//Want to buy the grenade launcher
+
+			//Check if the player already has a grenade launcher
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the grenade launcher.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the grenade launcher
+
+				//Check if the player can afford the grenade launcher
+				if (ent->client->pointCount < ent->client->grenadelauncherPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the grenade launcher.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->grenadelauncherPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the grenade launcher here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Grenade launcher purchased for 7000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Rocket Launcher") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the rocket launcher");
+			//Want to buy the rocket launcher
+
+			//Check if the player already has a rocket launcher
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the rocket launcher.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the rocket launcher
+
+				//Check if the player can afford the rocket launcher
+				if (ent->client->pointCount < ent->client->rocketlauncherPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the rocket launcher.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->rocketlauncherPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the rocket launcher here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Rocket launcher purchased for 5000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "HyperBlaster") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the hyperblaster");
+			//Want to buy the hyperblaster
+
+			//Check if the player already has a hyperblaster
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the hyperblaster.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the hyperblaster
+
+				//Check if the player can afford the hyperblaster
+				if (ent->client->pointCount < ent->client->hyperblasterPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the hyperblaster.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->hyperblasterPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the hyperblaster here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Hyperblaster purchased for 6000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Railgun") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the railgun");
+			//Want to buy the railgun
+
+			//Check if the player already has a railgun
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the railgun.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the railgun
+
+				//Check if the player can afford the railgun
+				if (ent->client->pointCount < ent->client->railgunPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the railgun.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->railgunPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the railgun here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "Railgun purchased for 8000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "BFG10K") == 0))
 		{
-			gi.centerprintf(ent, "Want to buy the bfg");
+			//Want to buy the bfg
+
+			//Check if the player already has a bfg
+			if (itemOwned)
+			{
+				gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the bfg.\n\n");
+
+				//Add this line to give room for the message
+				ent->client->timer = level.time + 1.0;
+			}
+			else
+			{
+				//Player can purchase the bfg
+
+				//Check if the player can afford the bfg
+				if (ent->client->pointCount < ent->client->bfgPrice)
+				{
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the bfg.\n\n");
+
+					//Add this line to give room for the message
+					ent->client->timer = level.time + 1.0;
+				}
+				else
+				{
+					//Decrease the player's point count
+					ent->client->pointCount = ent->client->pointCount - ent->client->bfgPrice;
+					ent->client->valChanged = true;
+
+					//Actually give the player the bfg here
+					it_ent = G_Spawn();
+					it_ent->classname = it->classname;
+					SpawnItem(it_ent, it);
+					Touch_Item(it_ent, ent, NULL, NULL);
+					if (it_ent->inuse)
+						G_FreeEdict(it_ent);
+
+					gi.cprintf(ent, PRINT_HIGH, "BFG purchased for 9000 points.");
+				}
+			}
 		}
 		else if ((Q_stricmp(s, "Juggernog") == 0))
 		{
@@ -466,6 +830,13 @@ void Cmd_Use_f (edict_t *ent)
 		{
 			gi.centerprintf(ent, "Want to buy quick revive");
 		}
+		else
+		{
+			//Add this just in case
+			gi.cprintf(ent, PRINT_HIGH, "\n\nERROR: Unidentified item.\n\n");
+		}
+
+		//Exit method here
 		return;
 	}
 
