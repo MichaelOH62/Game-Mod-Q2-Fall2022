@@ -317,7 +317,7 @@ void BuyMenu(edict_t* ent)
 	char* juggernog = "F1: Juggernog         2500";
 	char* staminup = "F2: Stamin-Up         2000";
 	char* ultrajump = "F3: Ultra-Jump        1500";
-	char* doubletap = "F4: Double-Tap        2000";
+	char* doubletap = "F4: DoubleTap         2000";
 	char* quickrevive = "F5: Quick Revive       500";
 
 	//Used to populate values dependent on the client

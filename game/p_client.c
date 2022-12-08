@@ -1377,6 +1377,13 @@ void ClientBegin (edict_t *ent)
 	client->doubletapPrice = 2000;
 	client->quickrevivePrice = 500;
 
+	//Initialize the perks booleans here
+	client->hasJuggernog = false;
+	client->hasStaminUp = false;
+	client->hasUltraJump = false;
+	client->hasDoubleTap = false;
+	client->hasQuickRevive = false;
+
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }
