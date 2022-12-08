@@ -892,6 +892,7 @@ struct gclient_s
 	qboolean	showinventory;		// set layout stat
 	qboolean	showhelp;
 	qboolean	showhelpicon;
+	qboolean	showbuymenu;
 
 	int			ammo_index;
 
@@ -960,6 +961,7 @@ struct gclient_s
 	edict_t		*chase_target;		// player we are chasing
 	qboolean	update_chase;		// need to update chase info?
 
+	//Variables created for zombies
 	qboolean spawned;
 	int killCount;
 	int waveCount;
@@ -968,6 +970,31 @@ struct gclient_s
 	qboolean valChanged;
 	float timer;
 	int fireCounter;
+
+	//Variables created for weapon prices
+	int shotgunPrice;
+	int supershotgunPrice;
+	int machinegunPrice;
+	int chaingunPrice;
+	int grenadelauncherPrice;
+	int rocketlauncherPrice;
+	int hyperblasterPrice;
+	int railgunPrice;
+	int bfgPrice;
+
+	//Variables created for perk prices
+	int juggernogPrice;
+	int staminupPrice;
+	int ultrajumpPrice;
+	int doubletapPrice;
+	int quickrevivePrice;
+
+	//Variables created to determine if the player has a perk
+	qboolean hasJuggernog;
+	qboolean hasStaminUp;
+	qboolean hasUltraJump;
+	qboolean hasDoubleTap;
+	qboolean hasQuickRevive;
 };
 
 

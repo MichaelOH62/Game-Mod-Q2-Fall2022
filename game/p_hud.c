@@ -277,6 +277,7 @@ void Cmd_Score_f (edict_t *ent)
 {
 	ent->client->showinventory = false;
 	ent->client->showhelp = false;
+	ent->client->showbuymenu = false;
 
 	if (!deathmatch->value && !coop->value)
 		return;
@@ -291,6 +292,75 @@ void Cmd_Score_f (edict_t *ent)
 	DeathmatchScoreboard (ent);
 }
 
+/*
+==================
+BuyMenu
+
+Draw buy menu
+==================
+*/
+void BuyMenu(edict_t* ent)
+{
+	//TODO: Modify this to display all purchasable items
+	char	string[1024];
+
+	//Create custom strings for buy menu
+	char* shotgun = "2: Shotgun            1000";
+	char* supershotgun = "3: Super Shotgun      3000";
+	char* machinegun = "4: Machinegun         2000";
+	char* chaingun = "5: Chaingun           4000";
+	char* grenadelauncher = "6: Grenade Launcher   7000";
+	char* rocketlauncher = "7: Rocket Launcher    5000";
+	char* hyperblaster = "8: Hyperblaster       6000";
+	char* railgun = "9: Railgun            8000";
+	char* bfg = "0: BFG                9000";
+	char* juggernog = "F1: Juggernog         2500";
+	char* staminup = "F2: Stamin-Up         2000";
+	char* ultrajump = "F3: Ultra-Jump        1500";
+	char* doubletap = "F4: DoubleTap         2000";
+	char* quickrevive = "F5: Quick Revive       500";
+
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	// send the layout
+	Com_sprintf(string, sizeof(string),
+		"xv 32 yv 8 picn inventory "		// background
+		"xv 0 yv 26 cstring2 \"%s\" "		// first item (shotgun)
+		"xv 0 yv 36 cstring2 \"%s\" "		// second item (super shotgun)
+		"xv 0 yv 46 cstring2 \"%s\" "		// third item (machinegun)
+		"xv 0 yv 56 cstring2 \"%s\" "		// fourth item (chaingun)
+		"xv 0 yv 66 cstring2 \"%s\" "		// fifth item (grenadelauncher)
+		"xv 0 yv 76 cstring2 \"%s\" "		// sixth item (rocketlauncher)
+		"xv 0 yv 86 cstring2 \"%s\" "		// seventh item (hyperblaster)
+		"xv 0 yv 96 cstring2 \"%s\" "		// eigth item (railgun)
+		"xv 0 yv 106 cstring2 \"%s\" "		// ninth item (bfg)
+		"xv 0 yv 126 cstring2 \"%s\" "		// tenth item (juggernog)
+		"xv 0 yv 136 cstring2 \"%s\" "		// eleventh item (staminup)
+		"xv 0 yv 146 cstring2 \"%s\" "		// twelth item (ultrajump)
+		"xv 0 yv 156 cstring2 \"%s\" "		// thirteenth item (doubletap)
+		"xv 0 yv 166 cstring2 \"%s\" ",		// fourteenth item (quickrevive)
+		shotgun,
+		supershotgun,
+		machinegun,
+		chaingun,
+		grenadelauncher,
+		rocketlauncher,
+		hyperblaster,
+		railgun,
+		bfg,
+		juggernog,
+		staminup,
+		ultrajump,
+		doubletap,
+		quickrevive);
+
+	gi.WriteByte(svc_layout);
+	gi.WriteString(string);
+	gi.unicast(ent, true);
+}
 
 /*
 ==================
@@ -316,7 +386,7 @@ void HelpComputer (edict_t *ent)
 	//Create custom strings for help screen
 	char* modname = "Quake 2 Zombies Mod";
 	char* help1 = "Zombies spawn in waves.\nWaves become harder.\nSurvive!";
-	char* help2 = "Access Buy Menu with B.\nSpend points wisely!";
+	char* help2 = "Access Buy Menu with TAB.\nSpend points wisely!";
 
 	//Used to populate values dependent on the client
 	gclient_t* client;
@@ -345,6 +415,29 @@ void HelpComputer (edict_t *ent)
 	gi.unicast (ent, true);
 }
 
+/*
+==================
+Cmd_BuyMenu_f
+
+Display the buy menu
+==================
+*/
+void Cmd_BuyMenu_f(edict_t* ent)
+{
+	ent->client->showinventory = false;
+	ent->client->showscores = false;
+	ent->client->showhelp = false;
+
+	//Hide the buy menu if it is currently displaying
+	if (ent->client->showbuymenu)
+	{
+		ent->client->showbuymenu = false;
+		return;
+	}
+
+	ent->client->showbuymenu = true;
+	BuyMenu(ent);	//Draw the buy menu
+}
 
 /*
 ==================
@@ -364,6 +457,7 @@ void Cmd_Help_f (edict_t *ent)
 
 	ent->client->showinventory = false;
 	ent->client->showscores = false;
+	ent->client->showbuymenu = false;
 
 	if (ent->client->showhelp && (ent->client->pers.game_helpchanged == game.helpchanged))
 	{
@@ -507,7 +601,8 @@ void G_SetStats (edict_t *ent)
 	}
 	else
 	{
-		if (ent->client->showscores || ent->client->showhelp)
+		//add the new buymenu here
+		if (ent->client->showscores || ent->client->showhelp || ent->client->showbuymenu)
 			ent->client->ps.stats[STAT_LAYOUTS] |= 1;
 		if (ent->client->showinventory && ent->client->pers.health > 0)
 			ent->client->ps.stats[STAT_LAYOUTS] |= 2;

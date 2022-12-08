@@ -1359,6 +1359,31 @@ void ClientBegin (edict_t *ent)
 	client->valChanged = true;
 	client->timer = level.time + 1.5;
 
+	//Initialize the weapon prices here
+	client->shotgunPrice = 1000;
+	client->supershotgunPrice = 3000;
+	client->machinegunPrice = 2000;
+	client->chaingunPrice = 4000;
+	client->grenadelauncherPrice = 7000;
+	client->rocketlauncherPrice = 5000;
+	client->hyperblasterPrice = 6000;
+	client->railgunPrice = 8000;
+	client->bfgPrice = 9000;
+
+	//Initialize the perk prices here
+	client->juggernogPrice = 2500;
+	client->staminupPrice = 2000;
+	client->ultrajumpPrice = 1500;
+	client->doubletapPrice = 2000;
+	client->quickrevivePrice = 500;
+
+	//Initialize the perks booleans here
+	client->hasJuggernog = false;
+	client->hasStaminUp = false;
+	client->hasUltraJump = false;
+	client->hasDoubleTap = false;
+	client->hasQuickRevive = false;
+
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }
