@@ -400,21 +400,93 @@ void Cmd_Use_f (edict_t *ent)
 	char		*s;
 
 	s = gi.args();
-	it = FindItem (s);
+
+	//Check if the player is purchasing an item
+	if (ent->client->showbuymenu == true)
+	{
+		//Determine what weapon is going to be purchased
+
+		//TODO: Add code to handle actually purchasing the item
+		//AKA	Deduct the points according to the item's cost from the player
+		//		Give the player the weapon or perk
+
+		if ((Q_stricmp(s, "Shotgun") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the shotgun");
+		}
+		else if ((Q_stricmp(s, "Super Shotgun") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the super shotgun");
+		}
+		else if ((Q_stricmp(s, "Machinegun") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the machinegun");
+		}
+		else if ((Q_stricmp(s, "Chaingun") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the chaingun");
+		}
+		else if ((Q_stricmp(s, "Grenade Launcher") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the grenade launcher");
+		}
+		else if ((Q_stricmp(s, "Rocket Launcher") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the rocket launcher");
+		}
+		else if ((Q_stricmp(s, "HyperBlaster") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the hyperblaster");
+		}
+		else if ((Q_stricmp(s, "Railgun") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the railgun");
+		}
+		else if ((Q_stricmp(s, "BFG10K") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy the bfg");
+		}
+		else if ((Q_stricmp(s, "Juggernog") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy juggernog");
+		}
+		else if ((Q_stricmp(s, "Stamin-Up") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy stamin-up");
+		}
+		else if ((Q_stricmp(s, "Ultra-Jump") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy ultra-jump");
+		}
+		else if ((Q_stricmp(s, "Double-Tap") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy double-tap");
+		}
+		else if ((Q_stricmp(s, "Quick Revive") == 0))
+		{
+			gi.centerprintf(ent, "Want to buy quick revive");
+		}
+		return;
+	}
+
+	it = FindItem(s);
 	if (!it)
 	{
-		gi.cprintf (ent, PRINT_HIGH, "unknown item: %s\n", s);
+		//Comment this out to not print if player presses a perk key outside of buy menu
+		//gi.cprintf(ent, PRINT_HIGH, "unknown item: %s\n", s);
 		return;
 	}
 	if (!it->use)
 	{
-		gi.cprintf (ent, PRINT_HIGH, "Item is not usable.\n");
+		gi.cprintf(ent, PRINT_HIGH, "Item is not usable.\n");
 		return;
 	}
+
 	index = ITEM_INDEX(it);
 	if (!ent->client->pers.inventory[index])
 	{
-		gi.cprintf (ent, PRINT_HIGH, "Out of item: %s\n", s);
+		//Added extra new lines for nice formatting with the zombies UI
+		gi.cprintf (ent, PRINT_HIGH, "\n\nOut of item: %s\n\n", s);
 		return;
 	}
 

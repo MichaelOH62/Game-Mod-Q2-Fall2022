@@ -303,21 +303,22 @@ void BuyMenu(edict_t* ent)
 {
 	//TODO: Modify this to display all purchasable items
 	char	string[1024];
-	char* sk;
 
-	if (skill->value == 0)
-		sk = "easy";
-	else if (skill->value == 1)
-		sk = "medium";
-	else if (skill->value == 2)
-		sk = "hard";
-	else
-		sk = "hard+";
-
-	//Create custom strings for help screen
-	char* modname = "Quake 2 Zombies Mod";
-	char* help1 = "Zombies spawn in waves.\nWaves become harder.\nSurvive!";
-	char* help2 = "Access Buy Menu with TAB.\nSpend points wisely!";
+	//Create custom strings for buy menu
+	char* shotgun = "2: Shotgun            1000";
+	char* supershotgun = "3: Super Shotgun      3000";
+	char* machinegun = "4: Machinegun         2000";
+	char* chaingun = "5: Chaingun           4000";
+	char* grenadelauncher = "6: Grenade Launcher   7000";
+	char* rocketlauncher = "7: Rocket Launcher    5000";
+	char* hyperblaster = "8: Hyperblaster       6000";
+	char* railgun = "9: Railgun            8000";
+	char* bfg = "0: BFG                9000";
+	char* juggernog = "F1: Juggernog         2500";
+	char* staminup = "F2: Stamin-Up         2000";
+	char* ultrajump = "F3: Ultra-Jump        1500";
+	char* doubletap = "F4: Double-Tap        2000";
+	char* quickrevive = "F5: Quick Revive       500";
 
 	//Used to populate values dependent on the client
 	gclient_t* client;
@@ -327,19 +328,34 @@ void BuyMenu(edict_t* ent)
 	// send the layout
 	Com_sprintf(string, sizeof(string),
 		"xv 32 yv 8 picn inventory "		// background
-		"xv 202 yv 12 string2 \"%s\" "		// skill
-		"xv 0 yv 24 cstring2 \"%s\" "		// mod name
-		"xv 0 yv 54 cstring2 \"%s\" "		// help 1
-		"xv 0 yv 110 cstring2 \"%s\" "		// help 2
-		"xv 50 yv 164 string2 \" kills     waves     perks\" "
-		"xv 50 yv 172 string2 \" %3i         %i        %i/%i\" ",
-		sk,
-		modname,
-		help1,
-		help2,
-		client->killCount,
-		client->waveCount,
-		client->perkCount, 5);
+		"xv 0 yv 26 cstring2 \"%s\" "		// first item (shotgun)
+		"xv 0 yv 36 cstring2 \"%s\" "		// second item (super shotgun)
+		"xv 0 yv 46 cstring2 \"%s\" "		// third item (machinegun)
+		"xv 0 yv 56 cstring2 \"%s\" "		// fourth item (chaingun)
+		"xv 0 yv 66 cstring2 \"%s\" "		// fifth item (grenadelauncher)
+		"xv 0 yv 76 cstring2 \"%s\" "		// sixth item (rocketlauncher)
+		"xv 0 yv 86 cstring2 \"%s\" "		// seventh item (hyperblaster)
+		"xv 0 yv 96 cstring2 \"%s\" "		// eigth item (railgun)
+		"xv 0 yv 106 cstring2 \"%s\" "		// ninth item (bfg)
+		"xv 0 yv 126 cstring2 \"%s\" "		// tenth item (juggernog)
+		"xv 0 yv 136 cstring2 \"%s\" "		// eleventh item (staminup)
+		"xv 0 yv 146 cstring2 \"%s\" "		// twelth item (ultrajump)
+		"xv 0 yv 156 cstring2 \"%s\" "		// thirteenth item (doubletap)
+		"xv 0 yv 166 cstring2 \"%s\" ",		// fourteenth item (quickrevive)
+		shotgun,
+		supershotgun,
+		machinegun,
+		chaingun,
+		grenadelauncher,
+		rocketlauncher,
+		hyperblaster,
+		railgun,
+		bfg,
+		juggernog,
+		staminup,
+		ultrajump,
+		doubletap,
+		quickrevive);
 
 	gi.WriteByte(svc_layout);
 	gi.WriteString(string);
