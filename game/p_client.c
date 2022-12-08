@@ -1410,7 +1410,7 @@ void ClientBegin (edict_t *ent)
 	client->juggernogPrice = 2500;
 	client->staminupPrice = 2000;
 	client->ultrajumpPrice = 1500;
-	client->doubletapPrice = 2000;
+	client->doubletapPrice = 3000;
 	client->quickrevivePrice = 500;
 
 	//Initialize the perks booleans here

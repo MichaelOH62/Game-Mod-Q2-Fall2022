@@ -740,7 +740,17 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 		v[YAW] = v[YAW] + i;
 		v[ROLL] = ent->client->v_angle[ROLL];
 		AngleVectors(v, forward, NULL, NULL);
-		fire_grenade(ent, start, forward, damage, 600, x, radius);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_grenade(ent, start, forward, damage, 600, x, radius);
+			fire_grenade(ent, start, forward, damage, 600, x, radius);
+		}
+		else
+		{
+			fire_grenade(ent, start, forward, damage, 600, x, radius);
+		}
 	}
 
 	gi.WriteByte (svc_muzzleflash);
@@ -810,8 +820,19 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 		v[YAW] = ent->client->v_angle[YAW];
 		v[ROLL] = ent->client->v_angle[ROLL];
 		AngleVectors(v, forward, NULL, NULL);
+
 		//Increase fly speed and reduced damage radius
-		fire_rocket(ent, start, forward, damage, 800, damage_radius-20, radius_damage);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_rocket(ent, start, forward, damage, 800, damage_radius - 20, radius_damage);
+			fire_rocket(ent, start, forward, damage, 800, damage_radius - 20, radius_damage);
+		}
+		else
+		{
+			fire_rocket(ent, start, forward, damage, 800, damage_radius - 20, radius_damage);
+		}
 	}
 
 	// send muzzle flash
@@ -876,9 +897,31 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 		float x = random();
 
 		if (x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
-			fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+		{
+			//Fire the weapon, if player has Double Tap, fire twice
+			if (ent->client->hasDoubleTap == true)
+			{
+				fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+				fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+			}
+			else
+			{
+				fire_rocket(ent, start, forward, damage, 1000, 100, 100);
+			}
+		}
 		else
-			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+		{
+			//Fire the weapon, if player has Double Tap, fire twice
+			if (ent->client->hasDoubleTap == true)
+			{
+				fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+				fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+			}
+			else
+			{
+				fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+			}
+		}
 	}
 	else
 	{
@@ -914,7 +957,17 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 			v[ROLL] = ent->client->v_angle[ROLL];
 		}
 		AngleVectors(v, forward, NULL, NULL);
-		fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+		}
+		else
+		{
+			fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+		}
 	}
 
 	// send muzzle flash
@@ -1112,15 +1165,31 @@ void Machinegun_Fire (edict_t *ent)
 
 	//Check if the weapon has less than 20 shots, if so reduce spread and increase damage
 	if (ammo_lt20 == 1)
-		fire_bullet (ent, start, forward, damage+2, kick, hspread, vspread, MOD_MACHINEGUN);
+	{
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_bullet(ent, start, forward, damage + 2, kick, hspread, vspread, MOD_MACHINEGUN);
+			fire_bullet(ent, start, forward, damage + 2, kick, hspread, vspread, MOD_MACHINEGUN);
+		}
+		else
+		{
+			fire_bullet(ent, start, forward, damage + 2, kick, hspread, vspread, MOD_MACHINEGUN);
+		}
+	}
 	else
-		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
-
-	/*
-	ent->client->fireCounter++;
-	gi.centerprintf(ent, "Fire counter = %d", ent->client->fireCounter);
-	gi.centerprintf(ent, "Ammo = %d", ent->client->pers.inventory[ent->client->ammo_index]);
-	*/
+	{
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+		}
+		else
+		{
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD, DEFAULT_BULLET_VSPREAD, MOD_MACHINEGUN);
+		}
+	}
 
 	gi.WriteByte (svc_muzzleflash);
 	gi.WriteShort (ent-g_edicts);
@@ -1274,8 +1343,17 @@ void Chaingun_Fire (edict_t *ent)
 			//held down the shortest, make damage the smallest
 			damage = 5;
 		}
-		//gi.centerprintf(ent, "Damage = %d, HSPREAD = %d, VSPREAD = %d", damage, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots * 50));
-		fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots*50), MOD_CHAINGUN);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots * 50), MOD_CHAINGUN);
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD * shots, DEFAULT_BULLET_VSPREAD + (shots * 50), MOD_CHAINGUN);
+		}
+		else
+		{
+			fire_bullet(ent, start, forward, damage, kick, DEFAULT_BULLET_HSPREAD* shots, DEFAULT_BULLET_VSPREAD + (shots * 50), MOD_CHAINGUN);
+		}
 	}
 
 	// send muzzle flash
@@ -1346,12 +1424,32 @@ void weapon_shotgun_fire(edict_t* ent)
 		if (ent->client->pers.inventory[ent->client->ammo_index] % 2 == 0)
 		{
 			//Even, large spread and pellet count
-			fire_shotgun(ent, start, forward, damage, kick, 750, 750, DEFAULT_SHOTGUN_COUNT + 8, MOD_SHOTGUN);
+			
+			//Fire the weapon, if player has Double Tap, fire twice
+			if (ent->client->hasDoubleTap == true)
+			{
+				fire_shotgun(ent, start, forward, damage, kick, 750, 750, DEFAULT_SHOTGUN_COUNT + 8, MOD_SHOTGUN);
+				fire_shotgun(ent, start, forward, damage, kick, 750, 750, DEFAULT_SHOTGUN_COUNT + 8, MOD_SHOTGUN);
+			}
+			else
+			{
+				fire_shotgun(ent, start, forward, damage, kick, 750, 750, DEFAULT_SHOTGUN_COUNT + 8, MOD_SHOTGUN);
+			}
 		}
 		else
 		{
 			//Odd, default spread and pellet count
-			fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+
+			//Fire the weapon, if player has Double Tap, fire twice
+			if (ent->client->hasDoubleTap == true)
+			{
+				fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+				fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+			}
+			else
+			{
+				fire_shotgun(ent, start, forward, damage, kick, 500, 500, DEFAULT_SHOTGUN_COUNT, MOD_SHOTGUN);
+			}
 		}
 	}
 		
@@ -1409,7 +1507,17 @@ void weapon_supershotgun_fire (edict_t *ent)
 		v[YAW] = ent->client->v_angle[YAW];
 		v[ROLL] = ent->client->v_angle[ROLL];
 		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage+4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			fire_shotgun(ent, start, forward, damage + 4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage + 4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		}
+		else
+		{
+			fire_shotgun(ent, start, forward, damage + 4, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		}
 	}
 	else
 	{
@@ -1418,25 +1526,58 @@ void weapon_supershotgun_fire (edict_t *ent)
 		v[ROLL] = ent->client->v_angle[ROLL];
 
 		//Set up a gigantic blast
-		v[YAW] = ent->client->v_angle[YAW] - 5;	//Fire to left
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
-		v[YAW] = ent->client->v_angle[YAW] + 5;	//Fire to right
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
-		v[YAW] = ent->client->v_angle[YAW] - 10;	//Fire extra far to left
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
-		v[YAW] = ent->client->v_angle[YAW] + 10;	//Fire extra far to right
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
-		v[PITCH] = ent->client->v_angle[PITCH] + 10;	//Fire blast up
-		v[YAW] = ent->client->v_angle[YAW];	//Reset YAW to middle
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
-		v[PITCH] = ent->client->v_angle[PITCH] - 10;	//Fire blast down
-		AngleVectors(v, forward, NULL, NULL);
-		fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+
+		//Fire the weapon, if player has Double Tap, fire twice
+		if (ent->client->hasDoubleTap == true)
+		{
+			v[YAW] = ent->client->v_angle[YAW] - 5;	//Fire to left
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] + 5;	//Fire to right
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] - 10;	//Fire extra far to left
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] + 10;	//Fire extra far to right
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[PITCH] = ent->client->v_angle[PITCH] + 10;	//Fire blast up
+			v[YAW] = ent->client->v_angle[YAW];	//Reset YAW to middle
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[PITCH] = ent->client->v_angle[PITCH] - 10;	//Fire blast down
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		}
+		else
+		{
+			v[YAW] = ent->client->v_angle[YAW] - 5;	//Fire to left
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] + 5;	//Fire to right
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] - 10;	//Fire extra far to left
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[YAW] = ent->client->v_angle[YAW] + 10;	//Fire extra far to right
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[PITCH] = ent->client->v_angle[PITCH] + 10;	//Fire blast up
+			v[YAW] = ent->client->v_angle[YAW];	//Reset YAW to middle
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+			v[PITCH] = ent->client->v_angle[PITCH] - 10;	//Fire blast down
+			AngleVectors(v, forward, NULL, NULL);
+			fire_shotgun(ent, start, forward, damage, kick, DEFAULT_SHOTGUN_HSPREAD, DEFAULT_SHOTGUN_VSPREAD, DEFAULT_SSHOTGUN_COUNT / 2, MOD_SSHOTGUN);
+		}
 	}
 
 	// send muzzle flash
@@ -1503,7 +1644,17 @@ void weapon_railgun_fire (edict_t *ent)
 
 	VectorSet(offset, 0, 7,  ent->viewheight-8);
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
-	fire_rail (ent, start, forward, damage, kick);
+
+	//Fire the weapon, if player has Double Tap, fire twice
+	if (ent->client->hasDoubleTap == true)
+	{
+		fire_rail(ent, start, forward, damage, kick);
+		fire_rail(ent, start, forward, damage, kick);
+	}
+	else
+	{
+		fire_rail(ent, start, forward, damage, kick);
+	}
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
@@ -1604,7 +1755,17 @@ void weapon_bfg_fire (edict_t *ent)
 	P_ProjectSource (ent->client, ent->s.origin, offset, forward, right, start);
 
 	//fly speed is random based on x
-	fire_bfg (ent, start, forward, damage, fly_speed, damage_radius);
+	
+	//Fire the weapon, if player has Double Tap, fire twice
+	if (ent->client->hasDoubleTap == true)
+	{
+		fire_bfg(ent, start, forward, damage, fly_speed, damage_radius);
+		fire_bfg(ent, start, forward, damage, fly_speed, damage_radius);
+	}
+	else
+	{
+		fire_bfg(ent, start, forward, damage, fly_speed, damage_radius);
+	}
 
 	/*
 	fly speed and kick should be proportional

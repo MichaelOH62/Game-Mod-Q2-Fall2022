@@ -983,7 +983,7 @@ void Cmd_Use_f(edict_t* ent)
 						//Give the player double tap
 						ent->client->hasDoubleTap = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Double Tap purchased for 2000 points.");
+						gi.cprintf(ent, PRINT_HIGH, "Double Tap purchased for 3000 points.");
 					}
 				}
 			}
