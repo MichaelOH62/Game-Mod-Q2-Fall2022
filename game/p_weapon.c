@@ -874,7 +874,7 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 
 		//Generate a random float between 0 and 1
 		float x = random();
-		//gi.centerprintf(ent, "x = %f", x);
+
 		if (x <= 0.1)	//10% chance to fire rocket instead of blaster bolt
 			fire_rocket(ent, start, forward, damage, 1000, 100, 100);
 		else
@@ -887,8 +887,6 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 		//Generate a random float between 0 and 1 and a random between 0 and 9
 		float x = random();
 		int y = rand() % 10;
-
-		//gi.centerprintf(ent, "y = %d", y);
 
 		//Add an element of randomness to where the blaster bolts fire
 		if (x < 0.25)	// - -

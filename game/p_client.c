@@ -1840,15 +1840,27 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			UpdateChaseCam(other);
 	}
 
-	//gi.cprintf(ent, PRINT_HIGH, "Client timer: %f", client->timer);
-	//gi.cprintf(ent, PRINT_HIGH, "Time: %f", level.time);
-
 	//Draw the information to the player
 	if (client->valChanged || level.time > client->timer)
 	{
 		DrawZombiesUI(ent);
 		client->valChanged = false;
 		client->timer = level.time + 1.5;
+	}
+
+	/*
+	* NOTE: When wave system is implemented, player should
+	* receive more health at the end of a wave when they
+	* have Juggernog (100) compared to not having it (50).
+	*/
+	//Check if the player has the Juggernog perk active
+	if (client->hasJuggernog)
+	{
+		ent->max_health = 200;
+	}
+	else
+	{
+		ent->max_health = 100;
 	}
 }
 
