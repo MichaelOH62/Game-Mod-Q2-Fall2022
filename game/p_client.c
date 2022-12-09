@@ -494,6 +494,30 @@ void LookAtKiller (edict_t *self, edict_t *inflictor, edict_t *attacker)
 }
 
 /*
+==============
+RemoveZombiesPerks
+
+Call this whenever the player's
+going to die but they have quick revive.
+This function removes all perks.
+==============
+*/
+void RemoveZombiesPerks(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	client->hasJuggernog = false;
+	client->hasPhDFlopper = false;
+	client->hasFireRing = false;
+	client->hasDoubleTap = false;
+	client->hasQuickRevive = false;
+
+	client->perkCount = 0;
+}
+
+/*
 ==================
 player_die
 ==================
@@ -501,6 +525,17 @@ player_die
 void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	int		n;
+
+	//Check if the player has the Quick Revive Perk before dying
+	if (self->client->hasQuickRevive)
+	{
+		gi.cprintf(self, PRINT_HIGH, "Quick Revive Activated!");
+
+		self->health = 50;
+		RemoveZombiesPerks(self);
+
+		return;
+	}
 
 	VectorClear (self->avelocity);
 
@@ -1245,7 +1280,8 @@ void PutClientInServer (edict_t *ent)
 		client->resp.spectator = false;
 
 	if (!KillBox (ent))
-	{	// could't spawn in?
+	{	
+		// could't spawn in?
 	}
 
 	gi.linkentity (ent);
@@ -1370,17 +1406,33 @@ void ClientBegin (edict_t *ent)
 	client->railgunPrice = 8000;
 	client->bfgPrice = 9000;
 
+	/*
+	* Perk Descriptions:
+	* Juggernog:
+	*	Increase max health to 200
+	*	Increase health gain at wave end from 50 to 100
+	* PhD Flopper:
+	*	Take no damage from explosions
+	* Fire Ring:
+	* 
+	* Double Tap:
+	*	All weapons fire twice per mouse click, essentially doubling damage
+	* Quick Revive:
+	*	When player dies, restore them to 50 health
+	*	Remove all perks from the player when activated
+	*/
+
 	//Initialize the perk prices here
 	client->juggernogPrice = 2500;
-	client->staminupPrice = 2000;
-	client->ultrajumpPrice = 1500;
-	client->doubletapPrice = 2000;
+	client->phdflopperPrice = 2000;
+	client->fireringPrice = 1500;
+	client->doubletapPrice = 3000;
 	client->quickrevivePrice = 500;
 
 	//Initialize the perks booleans here
 	client->hasJuggernog = false;
-	client->hasStaminUp = false;
-	client->hasUltraJump = false;
+	client->hasPhDFlopper = false;
+	client->hasFireRing = false;
 	client->hasDoubleTap = false;
 	client->hasQuickRevive = false;
 
@@ -1623,6 +1675,55 @@ void DrawZombiesUI(edict_t* ent)
 
 /*
 ==============
+StartsWith
+
+Call this in FireRingEffect to see
+if the ent near the player is a
+monster or not.
+==============
+*/
+int StartsWith(const char* a, const char* b)
+{
+	if (strncmp(a, b, strlen(b)) == 0) return 1;
+	return 0;
+}
+
+/*
+==============
+FireRingEffect
+
+Call this every tick and see if there
+are any enemies in the player's radius.
+==============
+*/
+void FireRingEffect(edict_t* self)
+{
+	edict_t* ent = NULL;
+	int value;
+	int count = 0;
+
+	while ((ent = findradius(ent, self->s.origin, 50)) != NULL)
+	{
+		//Add this to stop game from breaking, only affect one enemy
+		if (count == 1)
+		{
+			break;
+		}
+		value = StartsWith(ent->classname, "monster");
+		if ((ent != self) && (value == 1))
+		{
+			//1 Monster takes 2 damage every tick when in the radius of the player
+			if (ent->health > 0)
+			{
+				ent->health = ent->health - 2;
+			}
+			count++;
+		}
+	}
+}
+
+/*
+==============
 ClientThink
 
 This will be called once for each client frame, which will
@@ -1804,15 +1905,33 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			UpdateChaseCam(other);
 	}
 
-	//gi.cprintf(ent, PRINT_HIGH, "Client timer: %f", client->timer);
-	//gi.cprintf(ent, PRINT_HIGH, "Time: %f", level.time);
-
 	//Draw the information to the player
 	if (client->valChanged || level.time > client->timer)
 	{
 		DrawZombiesUI(ent);
 		client->valChanged = false;
 		client->timer = level.time + 1.5;
+	}
+
+	/*
+	* NOTE: When wave system is implemented, player should
+	* receive more health at the end of a wave when they
+	* have Juggernog (100) compared to not having it (50).
+	*/
+	//Check if the player has the Juggernog perk active
+	if (client->hasJuggernog)
+	{
+		ent->max_health = 200;
+	}
+	else
+	{
+		ent->max_health = 100;
+	}
+
+	//Check if the player has the FireRing perk active
+	if (client->hasFireRing)
+	{
+		FireRingEffect(ent);
 	}
 }
 

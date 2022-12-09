@@ -551,11 +551,17 @@ void T_RadiusDamage (edict_t *inflictor, edict_t *attacker, float damage, edict_
 	vec3_t	v;
 	vec3_t	dir;
 
+	//gi.centerprintf(inflictor->owner, "Hello");
+
 	while ((ent = findradius(ent, inflictor->s.origin, radius)) != NULL)
 	{
 		if (ent == ignore)
 			continue;
 		if (!ent->takedamage)
+			continue;
+
+		//Check if the entity to damage is the owner, if they have PhD Flopper they do not take damage
+		if (ent == inflictor->owner && inflictor->owner->client->hasPhDFlopper)
 			continue;
 
 		VectorAdd (ent->mins, ent->maxs, v);
