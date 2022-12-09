@@ -1414,7 +1414,7 @@ void ClientBegin (edict_t *ent)
 	* PhD Flopper:
 	*	Take no damage from explosions
 	* Fire Ring:
-	* 
+	*	One enemy standing close to the player takes ticking damage
 	* Double Tap:
 	*	All weapons fire twice per mouse click, essentially doubling damage
 	* Quick Revive:
