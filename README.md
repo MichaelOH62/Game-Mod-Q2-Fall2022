@@ -15,8 +15,15 @@ Goals for this project are:
 - [x] In-Game Help Screen explaining mod changes\
   -Modified the existing Help Screen to reflect the Zombies mod.
 - [ ] Wave Based System
-- [x] Rethemed Weapons
+- [x] Rethemed Weapons\
   -All 10 weapons have been modified to change the way each weapon behaves.
-- [ ] 5 Different Perks
+- [x] 5 Different Perks\
+  -Juggernog: Increase max health from 100 to 200.\
+  -PhD Flopper: Player takes no damage from explosions.\
+  -Fire Ring: One enemy that is standing close to the player takes ticking damage to their health.\
+  -Double Tap: All weapons fire twice per mouse click instead of once, doubles damage output.\
+  -Quick Revive: If player dies, restore them to 50 health and lose all perks.
 - [ ] 5 Different Drops / Item Pickups / Powerups
-- [ ] Point Based System / Buy Menu
+- [x] Point Based System / Buy Menu\
+  -Buy Menu accessible using TAB. Displays all weapons and perks that are purchasable.\
+  -Player earns 100 points for every zombie killed.
