@@ -316,7 +316,7 @@ void BuyMenu(edict_t* ent)
 	char* bfg = "0: BFG                9000";
 	char* juggernog = "F1: Juggernog         2500";
 	char* phdflopper = "F2: PhD Flopper       2000";
-	char* ultrajump = "F3: Ultra-Jump        1500";
+	char* ultrajump = "F3: Fire Ring         1500";
 	char* doubletap = "F4: Double Tap        3000";
 	char* quickrevive = "F5: Quick Revive       500";
 

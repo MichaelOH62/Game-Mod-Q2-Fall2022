@@ -985,14 +985,14 @@ struct gclient_s
 	//Variables created for perk prices
 	int juggernogPrice;
 	int phdflopperPrice;
-	int ultrajumpPrice;
+	int fireringPrice;
 	int doubletapPrice;
 	int quickrevivePrice;
 
 	//Variables created to determine if the player has a perk
 	qboolean hasJuggernog;
 	qboolean hasPhDFlopper;
-	qboolean hasUltraJump;
+	qboolean hasFireRing;
 	qboolean hasDoubleTap;
 	qboolean hasQuickRevive;
 };
