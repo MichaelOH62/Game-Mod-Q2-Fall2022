@@ -867,14 +867,14 @@ void Cmd_Use_f(edict_t* ent)
 					}
 				}
 			}
-			else if ((Q_stricmp(s, "Stamin-Up") == 0))
+			else if ((Q_stricmp(s, "PhD Flopper") == 0))
 			{
 				//Want to buy stamin-up perk
 
 				//Check if the player already has stamin-up
-				if (ent->client->hasStaminUp == true)
+				if (ent->client->hasPhDFlopper == true)
 				{
-					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have Stamin-Up.\n\n");
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have PhD Flopper.\n\n");
 
 					//Add this line to give room for the message
 					ent->client->timer = level.time + 1.0;
@@ -884,9 +884,9 @@ void Cmd_Use_f(edict_t* ent)
 					//Player can purchase stamin-up
 
 					//Check if the player can afford stamin-up
-					if (ent->client->pointCount < ent->client->staminupPrice)
+					if (ent->client->pointCount < ent->client->phdflopperPrice)
 					{
-						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford Stamin-Up.\n\n");
+						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford PhD Flopper.\n\n");
 
 						//Add this line to give room for the message
 						ent->client->timer = level.time + 1.0;
@@ -894,16 +894,16 @@ void Cmd_Use_f(edict_t* ent)
 					else
 					{
 						//Decrease the player's point count
-						ent->client->pointCount = ent->client->pointCount - ent->client->staminupPrice;
+						ent->client->pointCount = ent->client->pointCount - ent->client->phdflopperPrice;
 						ent->client->valChanged = true;
 
 						//Increase the amount of perks the player has
 						ent->client->perkCount = ent->client->perkCount + 1;
 
 						//Give the player stamin-up
-						ent->client->hasStaminUp = true;
+						ent->client->hasPhDFlopper = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Stamin-Up purchased for 2000 points.");
+						gi.cprintf(ent, PRINT_HIGH, "PhD Flopper purchased for 2000 points.");
 					}
 				}
 			}

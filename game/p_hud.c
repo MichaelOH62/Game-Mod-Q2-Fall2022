@@ -315,7 +315,7 @@ void BuyMenu(edict_t* ent)
 	char* railgun = "9: Railgun            8000";
 	char* bfg = "0: BFG                9000";
 	char* juggernog = "F1: Juggernog         2500";
-	char* staminup = "F2: Stamin-Up         2000";
+	char* phdflopper = "F2: PhD Flopper       2000";
 	char* ultrajump = "F3: Ultra-Jump        1500";
 	char* doubletap = "F4: Double Tap        3000";
 	char* quickrevive = "F5: Quick Revive       500";
@@ -338,7 +338,7 @@ void BuyMenu(edict_t* ent)
 		"xv 0 yv 96 cstring2 \"%s\" "		// eigth item (railgun)
 		"xv 0 yv 106 cstring2 \"%s\" "		// ninth item (bfg)
 		"xv 0 yv 126 cstring2 \"%s\" "		// tenth item (juggernog)
-		"xv 0 yv 136 cstring2 \"%s\" "		// eleventh item (staminup)
+		"xv 0 yv 136 cstring2 \"%s\" "		// eleventh item (phdflopper)
 		"xv 0 yv 146 cstring2 \"%s\" "		// twelth item (ultrajump)
 		"xv 0 yv 156 cstring2 \"%s\" "		// thirteenth item (doubletap)
 		"xv 0 yv 166 cstring2 \"%s\" ",		// fourteenth item (quickrevive)
@@ -352,7 +352,7 @@ void BuyMenu(edict_t* ent)
 		railgun,
 		bfg,
 		juggernog,
-		staminup,
+		phdflopper,
 		ultrajump,
 		doubletap,
 		quickrevive);

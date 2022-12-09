@@ -509,7 +509,7 @@ void RemoveZombiesPerks(edict_t* ent)
 	client = ent->client;
 
 	client->hasJuggernog = false;
-	client->hasStaminUp = false;
+	client->hasPhDFlopper = false;
 	client->hasUltraJump = false;
 	client->hasDoubleTap = false;
 	client->hasQuickRevive = false;
@@ -1406,16 +1406,32 @@ void ClientBegin (edict_t *ent)
 	client->railgunPrice = 8000;
 	client->bfgPrice = 9000;
 
+	/*
+	* Perk Descriptions:
+	* Juggernog:
+	*	Increase max health to 200
+	*	Increase health gain at wave end from 50 to 100
+	* PhD Flopper:
+	*	Take no damage from explosions
+	* Ultra Jump:
+	* 
+	* Double Tap:
+	*	All weapons fire twice per mouse click, essentially doubling damage
+	* Quick Revive:
+	*	When player dies, restore them to 50 health
+	*	Remove all perks from the player when activated
+	*/
+
 	//Initialize the perk prices here
 	client->juggernogPrice = 2500;
-	client->staminupPrice = 2000;
+	client->phdflopperPrice = 2000;
 	client->ultrajumpPrice = 1500;
 	client->doubletapPrice = 3000;
 	client->quickrevivePrice = 500;
 
 	//Initialize the perks booleans here
 	client->hasJuggernog = false;
-	client->hasStaminUp = false;
+	client->hasPhDFlopper = false;
 	client->hasUltraJump = false;
 	client->hasDoubleTap = false;
 	client->hasQuickRevive = false;

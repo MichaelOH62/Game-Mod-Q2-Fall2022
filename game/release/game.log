@@ -1,5 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  g_cmds.c
-C:\git\Game-Mod-Q2-Fall2022\game\g_cmds.c(1581,3): warning C4013: 'Cmd_BuyMenu_f' undefined; assuming extern returning int
+  g_combat.c
+  p_client.c
+  Generating Code...
      Creating library .\..\release\gamex86.lib and object .\..\release\gamex86.exp
   game.vcxproj -> C:\Program Files (x86)\Steam\steamapps\common\Quake 2\Zombies\gamex86.dll
