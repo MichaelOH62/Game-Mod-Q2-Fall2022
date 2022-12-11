@@ -178,10 +178,34 @@ void Cmd_Give_f (edict_t *ent)
 	* Logic for giving the player powerups here
 	*/
 
+	if (Q_stricmp(name, "double_points") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nDouble Points!\n");
+		ent->client->hasDoublePoints = true;
+		return;
+	}
+	if (Q_stricmp(name, "insta_kill") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nInsta-Kill!\n");
+		ent->client->hasInstaKill = true;
+		return;
+	}
 	if (Q_stricmp(name, "max_ammo") == 0)
 	{
-		gi.centerprintf(ent, "Max Ammo!");
+		gi.cprintf(ent, PRINT_HIGH, "\nMax Ammo!\n");
 		ent->client->hasMaxAmmo = true;
+		return;
+	}
+	if (Q_stricmp(name, "fire_sale") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nFire Sale!\n");
+		ent->client->hasFireSale = true;
+		return;
+	}
+	if (Q_stricmp(name, "zombie_blood") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nZombie Blood!\n");
+		ent->client->hasZombieBlood = true;
 		return;
 	}
 

@@ -431,16 +431,22 @@ void monster_check_pause(edict_t* ent, edict_t* monster)
 	level.current_entity = ent;
 	client = ent->client;
 
+	//Prevent crashing
 	if (client == NULL)
 	{
 		return;
 	}
 	else
 	{
+		//Check if player has Zombie Blood powerup
 		if (client->hasZombieBlood == true)
 		{
-			monster->monsterinfo.pausetime = 100000000;
+			gi.cprintf(ent, PRINT_HIGH, "Zombie Blood Activated!");
+			monster->monsterinfo.pausetime = 5;
 			monster->monsterinfo.stand(monster);
+
+			//Set a timer for zombie blood to last here
+			client->hasZombieBlood = false;
 		}
 	}
 }
@@ -460,12 +466,15 @@ void monster_think (edict_t *self)
 	//Used to populate values dependent on the client
 	gclient_t* client;
 	client = self->enemy;
+
+	//Prevent crashing
 	if (client == NULL)
 	{
 		return;
 	}
 	else
 	{
+		//See if the monster should freeze due to Zombie Blood power up
 		monster_check_pause(self->enemy, self);
 	}
 }
