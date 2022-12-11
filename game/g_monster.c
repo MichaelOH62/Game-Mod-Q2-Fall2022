@@ -415,6 +415,35 @@ void M_MoveFrame (edict_t *self)
 		move->frame[index].thinkfunc (self);
 }
 
+/*
+================
+monster_check_pause
+
+Called whenever a monster is
+targeting the player as their enemy.
+If the player has the zombie blood
+powerup, freeze the monster.
+================
+*/
+void monster_check_pause(edict_t* ent, edict_t* monster)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	if (client == NULL)
+	{
+		return;
+	}
+	else
+	{
+		if (client->hasZombieBlood == true)
+		{
+			monster->monsterinfo.pausetime = 100000000;
+			monster->monsterinfo.stand(monster);
+		}
+	}
+}
 
 void monster_think (edict_t *self)
 {
@@ -427,6 +456,18 @@ void monster_think (edict_t *self)
 	M_CatagorizePosition (self);
 	M_WorldEffects (self);
 	M_SetEffects (self);
+
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	client = self->enemy;
+	if (client == NULL)
+	{
+		return;
+	}
+	else
+	{
+		monster_check_pause(self->enemy, self);
+	}
 }
 
 

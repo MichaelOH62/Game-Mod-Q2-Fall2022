@@ -1436,6 +1436,13 @@ void ClientBegin (edict_t *ent)
 	client->hasDoubleTap = false;
 	client->hasQuickRevive = false;
 
+	//Initialize the powerups booleans here
+	client->hasDoublePoints = false;
+	client->hasInstaKill = false;
+	client->hasMaxAmmo = false;
+	client->hasFireSale = false;
+	client->hasZombieBlood = false;
+
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }

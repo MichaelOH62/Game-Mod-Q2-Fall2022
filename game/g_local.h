@@ -995,6 +995,13 @@ struct gclient_s
 	qboolean hasFireRing;
 	qboolean hasDoubleTap;
 	qboolean hasQuickRevive;
+
+	//Variables created to determine if the player has a powerup
+	qboolean hasDoublePoints;
+	qboolean hasInstaKill;
+	qboolean hasMaxAmmo;
+	qboolean hasFireSale;
+	qboolean hasZombieBlood;
 };
 
 
