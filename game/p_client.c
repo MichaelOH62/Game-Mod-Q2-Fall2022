@@ -1467,7 +1467,7 @@ void ClientUserinfoChanged (edict_t *ent, char *userinfo)
 	{
 		strcpy (userinfo, "\\name\\badinfo\\skin\\male/grunt");
 	}
-
+	
 	// set name
 	s = Info_ValueForKey (userinfo, "name");
 	strncpy (ent->client->pers.netname, s, sizeof(ent->client->pers.netname)-1);
@@ -1939,6 +1939,29 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	if (client->hasFireRing)
 	{
 		FireRingEffect(ent);
+	}
+
+	/*
+	* Check if the player has any active powerups
+	*/
+
+	//Check if the player hasMaxAmmo, if so fill up all ammo
+	if (client->hasMaxAmmo)
+	{
+		//Fill up ammo for all weapons to max
+		gitem_t* it;
+		for (i = 0; i < game.num_items; i++)
+		{
+			it = itemlist + i;
+			if (!it->pickup)
+				continue;
+			if (!(it->flags & IT_AMMO))
+				continue;
+			Add_Ammo(ent, it, 1000);
+		}
+
+		//Player no longer has max ammo
+		client->hasMaxAmmo = false;
 	}
 }
 

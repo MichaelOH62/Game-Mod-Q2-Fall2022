@@ -174,6 +174,17 @@ void Cmd_Give_f (edict_t *ent)
 		return;
 	}
 
+	/*
+	* Logic for giving the player powerups here
+	*/
+
+	if (Q_stricmp(name, "max_ammo") == 0)
+	{
+		gi.centerprintf(ent, "Max Ammo!");
+		ent->client->hasMaxAmmo = true;
+		return;
+	}
+
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;
 	else
