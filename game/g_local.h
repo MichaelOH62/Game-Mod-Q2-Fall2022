@@ -998,10 +998,14 @@ struct gclient_s
 
 	//Variables created to determine if the player has a powerup
 	qboolean hasDoublePoints;
+	float doublePointsTimer;
 	qboolean hasInstaKill;
+	float instaKillTimer;
 	qboolean hasMaxAmmo;
 	qboolean hasFireSale;
 	qboolean hasZombieBlood;
+	float zombieBloodTimer;
+	qboolean zombieBloodControl;
 };
 
 

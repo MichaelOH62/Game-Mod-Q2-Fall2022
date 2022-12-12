@@ -1439,9 +1439,12 @@ void ClientBegin (edict_t *ent)
 	//Initialize the powerups booleans here
 	client->hasDoublePoints = false;
 	client->hasInstaKill = false;
+	client->instaKillTimer = 0;
 	client->hasMaxAmmo = false;
 	client->hasFireSale = false;
 	client->hasZombieBlood = false;
+	client->zombieBloodTimer = 0;
+	client->zombieBloodControl = true;
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -1920,6 +1923,10 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		client->timer = level.time + 1.5;
 	}
 
+	/*****************************************
+	* Check if the player has any active perks
+	*****************************************/
+
 	/*
 	* NOTE: When wave system is implemented, player should
 	* receive more health at the end of a wave when they
@@ -1941,9 +1948,9 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		FireRingEffect(ent);
 	}
 
-	/*
+	/********************************************
 	* Check if the player has any active powerups
-	*/
+	********************************************/
 
 	//Check if the player hasMaxAmmo, if so fill up all ammo
 	if (client->hasMaxAmmo)
