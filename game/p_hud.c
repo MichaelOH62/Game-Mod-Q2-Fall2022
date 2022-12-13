@@ -304,6 +304,11 @@ void BuyMenu(edict_t* ent)
 	//TODO: Modify this to display all purchasable items
 	char	string[1024];
 
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
 	//Create custom strings for buy menu
 	char* shotgun = "2: Shotgun            1000";
 	char* supershotgun = "3: Super Shotgun      3000";
@@ -320,10 +325,24 @@ void BuyMenu(edict_t* ent)
 	char* doubletap = "F4: Double Tap        3000";
 	char* quickrevive = "F5: Quick Revive       500";
 
-	//Used to populate values dependent on the client
-	gclient_t* client;
-	level.current_entity = ent;
-	client = ent->client;
+	//Set prices less if the player has fire sale
+	if (client->hasFireSale)
+	{
+		shotgun = "2: Shotgun             500";
+		supershotgun = "3: Super Shotgun      2500";
+		machinegun = "4: Machinegun         1500";
+		chaingun = "5: Chaingun           3500";
+		grenadelauncher = "6: Grenade Launcher   6500";
+		rocketlauncher = "7: Rocket Launcher    4500";
+		hyperblaster = "8: Hyperblaster       5500";
+		railgun = "9: Railgun            7500";
+		bfg = "0: BFG                8500";
+		juggernog = "F1: Juggernog         2000";
+		phdflopper = "F2: PhD Flopper       1500";
+		ultrajump = "F3: Fire Ring         1000";
+		doubletap = "F4: Double Tap        2500";
+		quickrevive = "F5: Quick Revive         0";
+	}
 
 	// send the layout
 	Com_sprintf(string, sizeof(string),

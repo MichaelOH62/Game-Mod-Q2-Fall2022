@@ -1438,13 +1438,10 @@ void ClientBegin (edict_t *ent)
 
 	//Initialize the powerups booleans here
 	client->hasDoublePoints = false;
-	client->hasInstaKill = false;
-	client->instaKillTimer = 0;
+	client->doublePointsTimer = 0;
 	client->hasMaxAmmo = false;
 	client->hasFireSale = false;
-	client->hasZombieBlood = false;
-	client->zombieBloodTimer = 0;
-	client->zombieBloodControl = true;
+	client->fireSaleTimer = 0;
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -1734,6 +1731,73 @@ void FireRingEffect(edict_t* self)
 
 /*
 ==============
+SetFireSalePrices
+
+This will be called if Fire Sale is active.
+Reduce prices by 500 points;
+==============
+*/
+void SetFireSalePrices(edict_t* ent)
+{
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	//The weapon prices
+	client->shotgunPrice = 500;
+	client->supershotgunPrice = 2500;
+	client->machinegunPrice = 1500;
+	client->chaingunPrice = 3500;
+	client->grenadelauncherPrice = 6500;
+	client->rocketlauncherPrice = 4500;
+	client->hyperblasterPrice = 5500;
+	client->railgunPrice = 7500;
+	client->bfgPrice = 8500;
+
+	//The perk prices
+	client->juggernogPrice = 2000;
+	client->phdflopperPrice = 1500;
+	client->fireringPrice = 1000;
+	client->doubletapPrice = 2500;
+	client->quickrevivePrice = 0;
+}
+
+/*
+==============
+SetDefaultPrices
+
+This will be called if Fire Sale is not active.
+==============
+*/
+void SetDefaultPrices(edict_t* ent)
+{
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	//The weapon prices
+	client->shotgunPrice = 1000;
+	client->supershotgunPrice = 3000;
+	client->machinegunPrice = 2000;
+	client->chaingunPrice = 4000;
+	client->grenadelauncherPrice = 7000;
+	client->rocketlauncherPrice = 5000;
+	client->hyperblasterPrice = 6000;
+	client->railgunPrice = 8000;
+	client->bfgPrice = 9000;
+
+	//The perk prices
+	client->juggernogPrice = 2500;
+	client->phdflopperPrice = 2000;
+	client->fireringPrice = 1500;
+	client->doubletapPrice = 3000;
+	client->quickrevivePrice = 500;
+}
+
+/*
+==============
 ClientThink
 
 This will be called once for each client frame, which will
@@ -1969,6 +2033,26 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 
 		//Player no longer has max ammo
 		client->hasMaxAmmo = false;
+	}
+
+	//Check if the player hasFireSale, if so reduce cost of all items
+	if (client->hasFireSale)
+	{
+		if (client->fireSaleTimer > level.time)
+		{
+			//Set prices to discounted values
+			SetFireSalePrices(ent);
+		}
+		else
+		{
+			gi.cprintf(ent, PRINT_HIGH, "Fire Sale no longer active.");
+
+			//Restore prices to their default
+			SetDefaultPrices(ent);
+
+			//Client does not have fire sale, set to false
+			client->hasFireSale = false;
+		}
 	}
 }
 
