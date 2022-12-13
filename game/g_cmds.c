@@ -180,14 +180,21 @@ void Cmd_Give_f (edict_t *ent)
 
 	if (Q_stricmp(name, "double_points") == 0)
 	{
-		gi.cprintf(ent, PRINT_HIGH, "\nDouble Points!\n");
+		gi.cprintf(ent, PRINT_HIGH, "\nDouble Points! (10 Seconds)\n");
 		ent->client->hasDoublePoints = true;
+		ent->client->doublePointsTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
 		return;
 	}
 	if (Q_stricmp(name, "max_ammo") == 0)
 	{
 		gi.cprintf(ent, PRINT_HIGH, "\nMax Ammo!\n");
 		ent->client->hasMaxAmmo = true;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
 		return;
 	}
 	if (Q_stricmp(name, "fire_sale") == 0)
@@ -195,6 +202,9 @@ void Cmd_Give_f (edict_t *ent)
 		gi.cprintf(ent, PRINT_HIGH, "\nFire Sale! (10 Seconds)\n");
 		ent->client->hasFireSale = true;
 		ent->client->fireSaleTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
 		return;
 	}
 

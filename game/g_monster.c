@@ -519,14 +519,21 @@ and their point count.
 */
 void increment_player_vals(edict_t* ent)
 {
+	//Used to populate values dependent on the client
 	gclient_t* client;
 	level.current_entity = ent;
 	client = ent->client;
 
-	//Check for double points here
-
+	//Increment kill count by 1
 	client->killCount = client->killCount + 1;
-	client->pointCount = client->pointCount + 100;
+
+	//Increment point value
+	if(client->hasDoublePoints)
+		client->pointCount = client->pointCount + 200;
+	else
+		client->pointCount = client->pointCount + 100;
+
+	//The player's values have changed
 	client->valChanged = true;
 }
 

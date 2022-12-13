@@ -2016,6 +2016,19 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	* Check if the player has any active powerups
 	********************************************/
 
+	//Check if player hasDoublePoints and timer is expired
+	if (client->hasDoublePoints && client->doublePointsTimer < level.time)
+	{
+		//Inform player double points no longer active
+		gi.cprintf(ent, PRINT_HIGH, "Double Points no longer active.");
+
+		//Do this to Draw the Zombies UI right below the message
+		ent->client->timer = level.time - 0.1;
+
+		//Set double points to false if they have it and time is up
+		client->hasDoublePoints = false;
+	}
+
 	//Check if the player hasMaxAmmo, if so fill up all ammo
 	if (client->hasMaxAmmo)
 	{
@@ -2045,7 +2058,11 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		}
 		else
 		{
+			//Inform player fire sale no longer active
 			gi.cprintf(ent, PRINT_HIGH, "Fire Sale no longer active.");
+
+			//Do this to Draw the Zombies UI right below the message
+			ent->client->timer = level.time - 0.1;
 
 			//Restore prices to their default
 			SetDefaultPrices(ent);
