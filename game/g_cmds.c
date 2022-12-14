@@ -207,6 +207,16 @@ void Cmd_Give_f (edict_t *ent)
 		ent->client->timer = level.time - 0.1;
 		return;
 	}
+	if (Q_stricmp(name, "perk_power") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nPerk Power! (10 Seconds)\n");
+		ent->client->hasPerkPower = true;
+		ent->client->perkPowerTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
 
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;

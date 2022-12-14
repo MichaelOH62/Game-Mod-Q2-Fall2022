@@ -1436,12 +1436,23 @@ void ClientBegin (edict_t *ent)
 	client->hasDoubleTap = false;
 	client->hasQuickRevive = false;
 
-	//Initialize the powerups booleans here
+	//Create this to keep track of what perks the player has
+	client->perks[0] = 0;
+	client->perks[1] = 0;
+	client->perks[2] = 0;
+	client->perks[3] = 0;
+	client->perks[4] = 0;
+
+	//Initialize the powerups variables here
 	client->hasDoublePoints = false;
 	client->doublePointsTimer = 0;
 	client->hasMaxAmmo = false;
 	client->hasFireSale = false;
 	client->fireSaleTimer = 0;
+	client->fireSaleCalls = 0;
+	client->hasPerkPower = false;
+	client->perkPowerTimer = 0;
+	client->perkPowerCalls = 0;
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -1798,6 +1809,89 @@ void SetDefaultPrices(edict_t* ent)
 
 /*
 ==============
+PerkPower
+
+This will be called if the player has
+the perk power powerup, give the player
+all of the perks for 10 seconds.
+==============
+*/
+void PerkPower(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	//Check what perks the player already has to save after powerup times out
+	//0 = Juggernog, 1 = PhD Flopper, 2 = Fire Ring, 3 = Double Tap, 4 = Quick Revive
+	if (client->hasJuggernog)
+		client->perks[0] = 1;
+	if (client->hasPhDFlopper)
+		client->perks[1] = 1;
+	if (client->hasFireRing)
+		client->perks[2] = 1;
+	if (client->hasDoubleTap)
+		client->perks[3] = 1;
+	if (client->hasQuickRevive)
+		client->perks[4] = 1;
+
+	//Set everything to true
+	client->hasJuggernog = true;
+	client->hasPhDFlopper = true;
+	client->hasFireRing = true;
+	client->hasDoubleTap = true;
+	client->hasQuickRevive = true;
+
+	client->perkCount = 5;
+}
+
+/*
+==============
+PerkPower
+
+This function will be called once the
+timer for the perkpower powerup runs out.
+Need to give the player back the perks they
+had before the powerup.
+==============
+*/
+void RestorePerks(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	//Check what perks the player had before perkpower
+	//0 = Juggernog, 1 = PhD Flopper, 2 = Fire Ring, 3 = Double Tap, 4 = Quick Revive
+	if (client->perks[0] == 0)
+	{
+		client->hasJuggernog = false;
+		client->perkCount = client->perkCount - 1;
+	}
+	if (client->perks[1] == 0)
+	{
+		client->hasPhDFlopper = false;
+		client->perkCount = client->perkCount - 1;
+	}
+	if (client->perks[2] == 0)
+	{
+		client->hasFireRing = false;
+		client->perkCount = client->perkCount - 1;
+	}
+	if (client->perks[3] == 0)
+	{
+		client->hasDoubleTap = false;
+		client->perkCount = client->perkCount - 1;
+	}
+	if (client->perks[4] == 0)
+	{
+		client->hasQuickRevive = false;
+		client->perkCount = client->perkCount - 1;
+	}
+}
+
+/*
+==============
 ClientThink
 
 This will be called once for each client frame, which will
@@ -2053,8 +2147,13 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	{
 		if (client->fireSaleTimer > level.time)
 		{
-			//Set prices to discounted values
-			SetFireSalePrices(ent);
+			//Add this to only call the function once per timer
+			if (client->fireSaleCalls < 1)
+			{
+				//Set prices to discounted values
+				SetFireSalePrices(ent);
+				client->fireSaleCalls = client->fireSaleCalls + 1;
+			}
 		}
 		else
 		{
@@ -2067,8 +2166,41 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			//Restore prices to their default
 			SetDefaultPrices(ent);
 
+			//Reset this back to 0 for next time
+			client->fireSaleCalls = 0;
 			//Client does not have fire sale, set to false
 			client->hasFireSale = false;
+		}
+	}
+
+	//Check if the player hasPerkPower, if so reduce cost of all items
+	if (client->hasPerkPower)
+	{
+		if (client->perkPowerTimer > level.time)
+		{
+			//Add this to only call the function once per timer
+			if (client->perkPowerCalls < 1)
+			{
+				//Call function to give player all perks
+				PerkPower(ent);
+				client->perkPowerCalls = client->perkPowerCalls + 1;
+			}
+		}
+		else
+		{
+			//Inform player fire sale no longer active
+			gi.cprintf(ent, PRINT_HIGH, "Perk Power no longer active.");
+
+			//Do this to Draw the Zombies UI right below the message
+			ent->client->timer = level.time - 0.1;
+
+			//Restore perks to what they had beforehand
+			RestorePerks(ent);
+
+			//Reset this back to 0 for next time
+			client->perkPowerCalls = 0;
+			//Client does not have perk power, set to false
+			client->hasPerkPower = false;
 		}
 	}
 }

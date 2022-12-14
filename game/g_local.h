@@ -995,6 +995,7 @@ struct gclient_s
 	qboolean hasFireRing;
 	qboolean hasDoubleTap;
 	qboolean hasQuickRevive;
+	int perks[5];
 
 	//Variables created to determine if the player has a powerup
 	qboolean hasDoublePoints;
@@ -1002,6 +1003,10 @@ struct gclient_s
 	qboolean hasMaxAmmo;
 	qboolean hasFireSale;
 	float fireSaleTimer;
+	int fireSaleCalls;
+	qboolean hasPerkPower;
+	float perkPowerTimer;
+	int perkPowerCalls;
 };
 
 
