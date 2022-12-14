@@ -722,6 +722,12 @@ void weapon_grenadelauncher_fire(edict_t* ent)
 	if (is_quad)
 		damage *= 4;
 
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
+
 	VectorSet(offset, 8, 8, ent->viewheight - 8);
 	AngleVectors(ent->client->v_angle, forward, right, NULL);
 	P_ProjectSource(ent->client, ent->s.origin, offset, forward, right, start);
@@ -803,6 +809,12 @@ void Weapon_RocketLauncher_Fire (edict_t *ent)
 		radius_damage *= 4;
 	}
 
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
+
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
 
 	VectorScale (forward, -2, ent->client->kick_origin);
@@ -878,6 +890,7 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 
 	if (is_quad)
 		damage *= 4;
+
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
 	VectorSet(offset, 24, 8, ent->viewheight-8);
 	VectorAdd (offset, g_offset, offset);
@@ -991,6 +1004,13 @@ void Weapon_Blaster_Fire (edict_t *ent)
 		damage = 15;
 	else
 		damage = 10;
+
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
+
 	Blaster_Fire (ent, vec3_origin, damage, false, EF_BLASTER);
 	ent->client->ps.gunframe++;
 }
@@ -1043,6 +1063,13 @@ void Weapon_HyperBlaster_Fire (edict_t *ent)
 				damage = 15;
 			else
 				damage = 20;
+
+			//Check if the player has instakill, if so dramatically increase damage
+			if (ent->client->hasInstaKill)
+			{
+				damage *= 25;
+			}
+
 			Blaster_Fire (ent, offset, damage, true, effect);
 			if (! ( (int)dmflags->value & DF_INFINITE_AMMO ) )
 				ent->client->pers.inventory[ent->client->ammo_index]--;
@@ -1133,6 +1160,12 @@ void Machinegun_Fire (edict_t *ent)
 	{
 		damage *= 4;
 		kick *= 4;
+	}
+
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
 	}
 
 	for (i=1 ; i<3 ; i++)
@@ -1311,6 +1344,12 @@ void Chaingun_Fire (edict_t *ent)
 		kick *= 4;
 	}
 
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
+
 	for (i=0 ; i<3 ; i++)
 	{
 		ent->client->kick_origin[i] = crandom() * 0.35;
@@ -1398,6 +1437,12 @@ void weapon_shotgun_fire(edict_t* ent)
 	{
 		ent->client->ps.gunframe++;
 		return;
+	}
+
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
 	}
 
 	AngleVectors(ent->client->v_angle, forward, right, NULL);
@@ -1496,6 +1541,12 @@ void weapon_supershotgun_fire (edict_t *ent)
 	{
 		damage *= 4;
 		kick *= 4;
+	}
+
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
 	}
 
 	//Check if the player's ammo count is divisible by 10
@@ -1637,6 +1688,12 @@ void weapon_railgun_fire (edict_t *ent)
 		kick *= 4;
 	}
 
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
+
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
 
 	VectorScale (forward, -3, ent->client->kick_origin);
@@ -1703,6 +1760,12 @@ void weapon_bfg_fire (edict_t *ent)
 		damage = 200;
 	else
 		damage = 250;	//Reduce damage, too OP with modifications
+
+	//Check if the player has instakill, if so dramatically increase damage
+	if (ent->client->hasInstaKill)
+	{
+		damage *= 25;
+	}
 
 	if (ent->client->ps.gunframe == 9)
 	{

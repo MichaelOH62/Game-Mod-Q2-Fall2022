@@ -217,6 +217,16 @@ void Cmd_Give_f (edict_t *ent)
 		ent->client->timer = level.time - 0.1;
 		return;
 	}
+	if (Q_stricmp(name, "insta_kill") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nInsta-Kill! (10 Seconds)\n");
+		ent->client->hasInstaKill = true;
+		ent->client->instaKillTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
 
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;
@@ -953,9 +963,9 @@ void Cmd_Use_f(edict_t* ent)
 			}
 			else if ((Q_stricmp(s, "PhD Flopper") == 0))
 			{
-				//Want to buy stamin-up perk
+				//Want to buy phd flopper perk
 
-				//Check if the player already has stamin-up
+				//Check if the player already has phd flopper
 				if (ent->client->hasPhDFlopper == true)
 				{
 					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have PhD Flopper.\n\n");
@@ -965,9 +975,9 @@ void Cmd_Use_f(edict_t* ent)
 				}
 				else
 				{
-					//Player can purchase stamin-up
+					//Player can purchase phd flopper
 
-					//Check if the player can afford stamin-up
+					//Check if the player can afford phd flopper
 					if (ent->client->pointCount < ent->client->phdflopperPrice)
 					{
 						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford PhD Flopper.\n\n");
@@ -984,7 +994,7 @@ void Cmd_Use_f(edict_t* ent)
 						//Increase the amount of perks the player has
 						ent->client->perkCount = ent->client->perkCount + 1;
 
-						//Give the player stamin-up
+						//Give the player phd flopper
 						ent->client->hasPhDFlopper = true;
 
 						//Print purchase message
@@ -997,9 +1007,9 @@ void Cmd_Use_f(edict_t* ent)
 			}
 			else if ((Q_stricmp(s, "Fire Ring") == 0))
 			{
-				//Want to buy ultra-jump perk
+				//Want to buy fire ring perk
 
-				//Check if the player already has ultra-jump
+				//Check if the player already has fire ring
 				if (ent->client->hasFireRing == true)
 				{
 					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have Fire Ring.\n\n");
@@ -1009,9 +1019,9 @@ void Cmd_Use_f(edict_t* ent)
 				}
 				else
 				{
-					//Player can purchase ultra-jump
+					//Player can purchase fire ring
 
-					//Check if the player can afford ultra-jump
+					//Check if the player can afford fire ring
 					if (ent->client->pointCount < ent->client->fireringPrice)
 					{
 						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford Fire Ring.\n\n");
@@ -1028,7 +1038,7 @@ void Cmd_Use_f(edict_t* ent)
 						//Increase the amount of perks the player has
 						ent->client->perkCount = ent->client->perkCount + 1;
 
-						//Give the player ultra-jump
+						//Give the player fire ring
 						ent->client->hasFireRing = true;
 
 						//Print purchase message

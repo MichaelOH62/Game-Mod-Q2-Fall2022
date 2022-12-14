@@ -1453,6 +1453,8 @@ void ClientBegin (edict_t *ent)
 	client->hasPerkPower = false;
 	client->perkPowerTimer = 0;
 	client->perkPowerCalls = 0;
+	client->hasInstaKill = false;
+	client->instaKillTimer = 0;
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -2173,7 +2175,7 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		}
 	}
 
-	//Check if the player hasPerkPower, if so reduce cost of all items
+	//Check if the player hasPerkPower, if so give player all perks
 	if (client->hasPerkPower)
 	{
 		if (client->perkPowerTimer > level.time)
@@ -2202,6 +2204,19 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			//Client does not have perk power, set to false
 			client->hasPerkPower = false;
 		}
+	}
+
+	//Check if the player has zombie blood, if so do zombie blood effect
+	if (client->hasInstaKill && client->instaKillTimer < level.time)
+	{
+		//Inform player double points no longer active
+		gi.cprintf(ent, PRINT_HIGH, "Insta-Kill no longer active.");
+
+		//Do this to Draw the Zombies UI right below the message
+		ent->client->timer = level.time - 0.1;
+
+		//Set insta-kill to false if they have it and time is up
+		client->hasInstaKill = false;
 	}
 }
 

@@ -551,12 +551,16 @@ void monster_death_use (edict_t *self)
 	gclient_t* client;
 	client = self->enemy;
 
+	gitem_t* it;
+	edict_t* it_ent;
+
 	//Player killed a monster, update their stats
 	increment_player_vals(self->enemy);
 	
 	self->flags &= ~(FL_FLY|FL_SWIM);
 	self->monsterinfo.aiflags &= AI_GOOD_GUY;
 
+	//Figure out to spawn a pickup on enemy death here for powerups	
 	if (self->item)
 	{
 		Drop_Item (self, self->item);

@@ -1007,6 +1007,8 @@ struct gclient_s
 	qboolean hasPerkPower;
 	float perkPowerTimer;
 	int perkPowerCalls;
+	qboolean hasInstaKill;
+	float instaKillTimer;
 };
 
 

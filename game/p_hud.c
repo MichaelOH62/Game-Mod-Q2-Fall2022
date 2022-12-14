@@ -301,7 +301,6 @@ Draw buy menu
 */
 void BuyMenu(edict_t* ent)
 {
-	//TODO: Modify this to display all purchasable items
 	char	string[1024];
 
 	//Used to populate values dependent on the client
