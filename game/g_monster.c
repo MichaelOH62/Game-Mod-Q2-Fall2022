@@ -551,8 +551,8 @@ void monster_death_use (edict_t *self)
 	gclient_t* client;
 	client = self->enemy;
 
+	//Used for the item to drop
 	gitem_t* it;
-	edict_t* it_ent;
 
 	//Player killed a monster, update their stats
 	increment_player_vals(self->enemy);
@@ -560,12 +560,24 @@ void monster_death_use (edict_t *self)
 	self->flags &= ~(FL_FLY|FL_SWIM);
 	self->monsterinfo.aiflags &= AI_GOOD_GUY;
 
+	//Generate float to determine if drop or not
+	float x = random();
+	
+	//Spawn a powerup only 10% of the time
+	if (x <= 0.10)
+	{
+		it = FindItem("New Powerup!");
+		Drop_Item(self, it);
+	}
+
 	//Figure out to spawn a pickup on enemy death here for powerups	
+	/*
 	if (self->item)
 	{
 		Drop_Item (self, self->item);
 		self->item = NULL;
 	}
+	*/
 
 	if (self->deathtarget)
 		self->target = self->deathtarget;
