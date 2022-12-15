@@ -28,7 +28,7 @@ Goals for this project are:
   -Max Ammo: Instantly max out the ammo for all ammo types.\
   -Fire Sale: Reduce the price of all items in the shop by 500 points.\
   -Perk Power: Give the player all 5 perks for 10 seconds. Restore player's original perks after.\
-  -Insta-Kill: Dramatically increase damage of all weapons so enemies die from any source of damage.
+  -Insta-Kill: Dramatically increase damage of all weapons so enemies die from any source of damage.\
   -TODO: Implement a system for enemies to have a chance of dropping a powerup on death.
 - [x] Point Based System / Buy Menu\
   -Buy Menu accessible using TAB. Displays all weapons and perks that are purchasable.\
