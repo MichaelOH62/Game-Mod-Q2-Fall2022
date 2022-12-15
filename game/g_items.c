@@ -781,6 +781,66 @@ void Touch_Item (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf
 		other->client->ps.stats[STAT_PICKUP_STRING] = CS_ITEMS+ITEM_INDEX(ent->item);
 		other->client->pickup_msg_time = level.time + 3.0;
 
+		//Check if the item picked up is the item we are using for powerups
+		if (ent->classname == "item_quad")
+		{
+			//Handle giving player random powerup here
+
+			//Generate float to determine if drop or not
+			float x = random();
+
+			//Every powerup has a 20% chance of being generated
+			if (x <= 0.20)
+			{
+				gi.cprintf(other, PRINT_HIGH, "Double Points! (10 Seconds)");
+				other->client->hasDoublePoints = true;
+				other->client->doublePointsTimer = level.time + 10.0;
+
+				//Do this to Draw the Zombies UI immediately after closing console
+				other->client->timer = level.time - 0.1;
+			}
+			else if (x > 0.20 && x <= 0.40)
+			{
+				gi.cprintf(other, PRINT_HIGH, "Max Ammo!");
+				other->client->hasMaxAmmo = true;
+
+				//Do this to Draw the Zombies UI immediately after closing console
+				other->client->timer = level.time - 0.1;
+			}
+			else if (x > 0.40 && x <= 0.60)
+			{
+				gi.cprintf(other, PRINT_HIGH, "Fire Sale! (10 Seconds)");
+				other->client->hasFireSale = true;
+				other->client->fireSaleTimer = level.time + 10.0;
+
+				//Do this to Draw the Zombies UI immediately after closing console
+				other->client->timer = level.time - 0.1;
+			}
+			else if (x > 0.60 && x <= 0.80)
+			{
+				gi.cprintf(other, PRINT_HIGH, "Perk Power! (10 Seconds)");
+				other->client->hasPerkPower = true;
+				other->client->perkPowerTimer = level.time + 10.0;
+
+				//Do this to Draw the Zombies UI immediately after closing console
+				other->client->timer = level.time - 0.1;
+			}
+			else
+			{
+				gi.cprintf(other, PRINT_HIGH, "Insta-Kill! (10 Seconds)");
+				other->client->hasInstaKill = true;
+				other->client->instaKillTimer = level.time + 10.0;
+
+				//Do this to Draw the Zombies UI immediately after closing console
+				other->client->timer = level.time - 0.1;
+			}
+
+			//Delete the powerup model and set powerupSpawned to false
+			other->client->powerupSpawned = false;
+			G_FreeEdict(ent);
+			return;
+		}
+
 		// change selected item
 		if (ent->item->use)
 			other->client->pers.selected_item = other->client->ps.stats[STAT_SELECTED_ITEM] = ITEM_INDEX(ent->item);
@@ -1674,7 +1734,7 @@ always owned, never in the world
 		"models/items/quaddama/tris.md2", EF_ROTATE,
 		NULL,
 /* icon */		"p_quad",
-/* pickup */	"Quad Damage",
+/* pickup */	"New Powerup!",
 /* width */		2,
 		60,
 		NULL,

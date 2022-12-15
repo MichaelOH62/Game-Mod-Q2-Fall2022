@@ -1009,6 +1009,9 @@ struct gclient_s
 	int perkPowerCalls;
 	qboolean hasInstaKill;
 	float instaKillTimer;
+
+	//Determine if a powerup has spawned
+	qboolean powerupSpawned;
 };
 
 

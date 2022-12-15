@@ -538,6 +538,30 @@ void increment_player_vals(edict_t* ent)
 }
 
 /*
+==============
+ActivePowerups
+
+This function will be called to check
+if the player has any active powerups.
+If they do, prevent a new one from spawning.
+==============
+*/
+int ActivePowerups(edict_t* ent)
+{
+	gclient_t* client;
+	level.current_entity = ent;
+	client = ent->client;
+
+	//Check if any powerups are active
+	if (client->hasDoublePoints || client->hasMaxAmmo || client->hasFireSale || client->hasPerkPower || client->hasInstaKill)
+	{
+		return 1;
+	}
+
+	return 0;
+}
+
+/*
 ================
 monster_death_use
 
@@ -547,12 +571,8 @@ enemy as activator.
 */
 void monster_death_use (edict_t *self)
 {
-	//Used to populate values dependent on the client
-	gclient_t* client;
-	client = self->enemy;
-
+	//Used for the item to drop
 	gitem_t* it;
-	edict_t* it_ent;
 
 	//Player killed a monster, update their stats
 	increment_player_vals(self->enemy);
@@ -560,12 +580,26 @@ void monster_death_use (edict_t *self)
 	self->flags &= ~(FL_FLY|FL_SWIM);
 	self->monsterinfo.aiflags &= AI_GOOD_GUY;
 
+	//Generate float to determine if drop or not
+	float x = random();
+
+	//Spawn a powerup only 10% of the time
+	//Ensure no other powerups are spawned or active
+	if ((x <= 0.1) && (self->enemy->client->powerupSpawned == false) && (ActivePowerups(self->enemy) == 0))
+	{
+		it = FindItem("New Powerup!");
+		Drop_Item(self, it);
+		self->enemy->client->powerupSpawned = true;
+	}
+
 	//Figure out to spawn a pickup on enemy death here for powerups	
+	/*
 	if (self->item)
 	{
 		Drop_Item (self, self->item);
 		self->item = NULL;
 	}
+	*/
 
 	if (self->deathtarget)
 		self->target = self->deathtarget;

@@ -1456,6 +1456,9 @@ void ClientBegin (edict_t *ent)
 	client->hasInstaKill = false;
 	client->instaKillTimer = 0;
 
+	//Initialize no powerups being spawned
+	client->powerupSpawned = false;
+
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }
