@@ -2206,10 +2206,10 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		}
 	}
 
-	//Check if the player has zombie blood, if so do zombie blood effect
+	//Check if the player has insta-kill, if so do insta-kill effect
 	if (client->hasInstaKill && client->instaKillTimer < level.time)
 	{
-		//Inform player double points no longer active
+		//Inform player insta-kill no longer active
 		gi.cprintf(ent, PRINT_HIGH, "Insta-Kill no longer active.");
 
 		//Do this to Draw the Zombies UI right below the message
