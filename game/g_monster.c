@@ -415,7 +415,6 @@ void M_MoveFrame (edict_t *self)
 		move->frame[index].thinkfunc (self);
 }
 
-
 void monster_think (edict_t *self)
 {
 	M_MoveFrame (self);
@@ -427,6 +426,16 @@ void monster_think (edict_t *self)
 	M_CatagorizePosition (self);
 	M_WorldEffects (self);
 	M_SetEffects (self);
+
+	//Used to populate values dependent on the client
+	gclient_t* client;
+	client = self->enemy;
+
+	//Prevent crashing
+	if (client == NULL)
+	{
+		return;
+	}
 }
 
 
@@ -510,12 +519,21 @@ and their point count.
 */
 void increment_player_vals(edict_t* ent)
 {
+	//Used to populate values dependent on the client
 	gclient_t* client;
 	level.current_entity = ent;
 	client = ent->client;
 
+	//Increment kill count by 1
 	client->killCount = client->killCount + 1;
-	client->pointCount = client->pointCount + 100;
+
+	//Increment point value
+	if(client->hasDoublePoints)
+		client->pointCount = client->pointCount + 200;
+	else
+		client->pointCount = client->pointCount + 100;
+
+	//The player's values have changed
 	client->valChanged = true;
 }
 
@@ -533,12 +551,16 @@ void monster_death_use (edict_t *self)
 	gclient_t* client;
 	client = self->enemy;
 
+	gitem_t* it;
+	edict_t* it_ent;
+
 	//Player killed a monster, update their stats
 	increment_player_vals(self->enemy);
 	
 	self->flags &= ~(FL_FLY|FL_SWIM);
 	self->monsterinfo.aiflags &= AI_GOOD_GUY;
 
+	//Figure out to spawn a pickup on enemy death here for powerups	
 	if (self->item)
 	{
 		Drop_Item (self, self->item);

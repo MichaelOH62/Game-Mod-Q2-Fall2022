@@ -174,6 +174,60 @@ void Cmd_Give_f (edict_t *ent)
 		return;
 	}
 
+	/*
+	* Logic for giving the player powerups here
+	*/
+
+	if (Q_stricmp(name, "double_points") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nDouble Points! (10 Seconds)\n");
+		ent->client->hasDoublePoints = true;
+		ent->client->doublePointsTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
+	if (Q_stricmp(name, "max_ammo") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nMax Ammo!\n");
+		ent->client->hasMaxAmmo = true;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
+	if (Q_stricmp(name, "fire_sale") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nFire Sale! (10 Seconds)\n");
+		ent->client->hasFireSale = true;
+		ent->client->fireSaleTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
+	if (Q_stricmp(name, "perk_power") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nPerk Power! (10 Seconds)\n");
+		ent->client->hasPerkPower = true;
+		ent->client->perkPowerTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
+	if (Q_stricmp(name, "insta_kill") == 0)
+	{
+		gi.cprintf(ent, PRINT_HIGH, "\nInsta-Kill! (10 Seconds)\n");
+		ent->client->hasInstaKill = true;
+		ent->client->instaKillTimer = level.time + 10.0;
+
+		//Do this to Draw the Zombies UI immediately after closing console
+		ent->client->timer = level.time - 0.1;
+		return;
+	}
+
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;
 	else
@@ -484,7 +538,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Shotgun purchased for 1000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Shotgun purchased for 500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Shotgun purchased for 1000 points.");
 					}
 				}
 			}
@@ -526,7 +584,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Super shotgun purchased for 3000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Super shotgun purchased for 2500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Super shotgun purchased for 3000 points.");
 					}
 				}
 			}
@@ -568,7 +630,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Machinegun purchased for 2000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Machinegun purchased for 1500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Machinegun purchased for 2000 points.");
 					}
 				}
 			}
@@ -610,7 +676,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Chaingun purchased for 4000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Chaingun purchased for 3500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Chaingun purchased for 4000 points.");
 					}
 				}
 			}
@@ -652,7 +722,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Grenade launcher purchased for 7000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Grenade launcher purchased for 6500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Grenade launcher purchased for 7000 points.");
 					}
 				}
 			}
@@ -694,30 +768,34 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Rocket launcher purchased for 5000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Rocket launcher purchased for 4500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Rocket launcher purchased for 5000 points.");
 					}
 				}
 			}
 			else if ((Q_stricmp(s, "HyperBlaster") == 0))
 			{
-				//Want to buy the chaingun
+				//Want to buy the hyperblaster
 
-				//Check if the player already has a chaingun
+				//Check if the player already has a hyperblaster
 				if (itemOwned)
 				{
-					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the chaingun.\n\n");
+					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already own the hyperblaster.\n\n");
 
 					//Add this line to give room for the message
 					ent->client->timer = level.time + 1.0;
 				}
 				else
 				{
-					//Player can purchase the chaingun
+					//Player can purchase the hyperblaster
 
-					//Check if the player can afford the chaingun
-					if (ent->client->pointCount < ent->client->chaingunPrice)
+					//Check if the player can afford the hyperblaster
+					if (ent->client->pointCount < ent->client->hyperblasterPrice)
 					{
-						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the chaingun.\n\n");
+						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford the hyperblaster.\n\n");
 
 						//Add this line to give room for the message
 						ent->client->timer = level.time + 1.0;
@@ -725,10 +803,10 @@ void Cmd_Use_f(edict_t* ent)
 					else
 					{
 						//Decrease the player's point count
-						ent->client->pointCount = ent->client->pointCount - ent->client->chaingunPrice;
+						ent->client->pointCount = ent->client->pointCount - ent->client->hyperblasterPrice;
 						ent->client->valChanged = true;
 
-						//Actually give the player the chaingun here
+						//Actually give the player the hyperblaster here
 						it_ent = G_Spawn();
 						it_ent->classname = it->classname;
 						SpawnItem(it_ent, it);
@@ -736,7 +814,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Hyperblaster purchased for 6000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Hyperblaster purchased for 5500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Hyperblaster purchased for 6000 points.");
 					}
 				}
 			}
@@ -778,7 +860,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "Railgun purchased for 8000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Railgun purchased for 7500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Railgun purchased for 8000 points.");
 					}
 				}
 			}
@@ -820,7 +906,11 @@ void Cmd_Use_f(edict_t* ent)
 						if (it_ent->inuse)
 							G_FreeEdict(it_ent);
 
-						gi.cprintf(ent, PRINT_HIGH, "BFG purchased for 9000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "BFG purchased for 8500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "BFG purchased for 9000 points.");
 					}
 				}
 			}
@@ -863,15 +953,19 @@ void Cmd_Use_f(edict_t* ent)
 						//Give the player juggernog
 						ent->client->hasJuggernog = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Juggernog purchased for 2500 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Juggernog purchased for 2000 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Juggernog purchased for 2500 points.");
 					}
 				}
 			}
 			else if ((Q_stricmp(s, "PhD Flopper") == 0))
 			{
-				//Want to buy stamin-up perk
+				//Want to buy phd flopper perk
 
-				//Check if the player already has stamin-up
+				//Check if the player already has phd flopper
 				if (ent->client->hasPhDFlopper == true)
 				{
 					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have PhD Flopper.\n\n");
@@ -881,9 +975,9 @@ void Cmd_Use_f(edict_t* ent)
 				}
 				else
 				{
-					//Player can purchase stamin-up
+					//Player can purchase phd flopper
 
-					//Check if the player can afford stamin-up
+					//Check if the player can afford phd flopper
 					if (ent->client->pointCount < ent->client->phdflopperPrice)
 					{
 						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford PhD Flopper.\n\n");
@@ -900,18 +994,22 @@ void Cmd_Use_f(edict_t* ent)
 						//Increase the amount of perks the player has
 						ent->client->perkCount = ent->client->perkCount + 1;
 
-						//Give the player stamin-up
+						//Give the player phd flopper
 						ent->client->hasPhDFlopper = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "PhD Flopper purchased for 2000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "PhD Flopper purchased for 1500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "PhD Flopper purchased for 2000 points.");
 					}
 				}
 			}
 			else if ((Q_stricmp(s, "Fire Ring") == 0))
 			{
-				//Want to buy ultra-jump perk
+				//Want to buy fire ring perk
 
-				//Check if the player already has ultra-jump
+				//Check if the player already has fire ring
 				if (ent->client->hasFireRing == true)
 				{
 					gi.cprintf(ent, PRINT_HIGH, "\n\nYou already have Fire Ring.\n\n");
@@ -921,9 +1019,9 @@ void Cmd_Use_f(edict_t* ent)
 				}
 				else
 				{
-					//Player can purchase ultra-jump
+					//Player can purchase fire ring
 
-					//Check if the player can afford ultra-jump
+					//Check if the player can afford fire ring
 					if (ent->client->pointCount < ent->client->fireringPrice)
 					{
 						gi.cprintf(ent, PRINT_HIGH, "\n\nYou cannot afford Fire Ring.\n\n");
@@ -940,10 +1038,14 @@ void Cmd_Use_f(edict_t* ent)
 						//Increase the amount of perks the player has
 						ent->client->perkCount = ent->client->perkCount + 1;
 
-						//Give the player ultra-jump
+						//Give the player fire ring
 						ent->client->hasFireRing = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Fire Ring purchased for 1500 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Fire Ring purchased for 1000 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Fire Ring purchased for 1500 points.");
 					}
 				}
 			}
@@ -983,7 +1085,11 @@ void Cmd_Use_f(edict_t* ent)
 						//Give the player double tap
 						ent->client->hasDoubleTap = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Double Tap purchased for 3000 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Double Tap purchased for 2500 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Double Tap purchased for 3000 points.");
 					}
 				}
 			}
@@ -1023,7 +1129,11 @@ void Cmd_Use_f(edict_t* ent)
 						//Give the player quick revive
 						ent->client->hasQuickRevive = true;
 
-						gi.cprintf(ent, PRINT_HIGH, "Quick Revive purchased for 500 points.");
+						//Print purchase message
+						if (ent->client->hasFireSale)
+							gi.cprintf(ent, PRINT_HIGH, "Quick Revive purchased for 0 points.");
+						else
+							gi.cprintf(ent, PRINT_HIGH, "Quick Revive purchased for 500 points.");
 					}
 				}
 			}
