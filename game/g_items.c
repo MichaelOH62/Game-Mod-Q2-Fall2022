@@ -835,6 +835,8 @@ void Touch_Item (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf
 				other->client->timer = level.time - 0.1;
 			}
 
+			//Delete the powerup model and set powerupSpawned to false
+			other->client->powerupSpawned = false;
 			G_FreeEdict(ent);
 			return;
 		}
