@@ -23,7 +23,7 @@ Goals for this project are:
   -Fire Ring: One enemy that is standing close to the player takes ticking damage to their health.\
   -Double Tap: All weapons fire twice per mouse click instead of once, doubles damage output.\
   -Quick Revive: If player dies, restore them to 50 health and lose all perks.
-- [ ] 5 Different Drops / Item Pickups / Powerups\
+- [x] 5 Different Drops / Item Pickups / Powerups\
   -Double Points: Player earns 200 points for a kill instead of 100 for 10 seconds.\
   -Max Ammo: Instantly max out the ammo for all ammo types.\
   -Fire Sale: Reduce the price of all items in the shop by 500 points.\
